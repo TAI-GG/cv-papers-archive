@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV 领域论文速览 · 学术档案库</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --primary: #1e40af;
+    --primary-light: #3b82f6;
+    --primary-bg: #eff6ff;
+    --accent: #6366f1;
+    --text: #1e293b;
+    --text-secondary: #64748b;
+    --border: #e2e8f0;
+    --card-bg: #ffffff;
+    --bg: #f8fafc;
+    --timeline-color: #c7d2fe;
+    --radius: 12px;
+    --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+    --shadow-hover: 0 10px 25px -5px rgba(0,0,0,.08), 0 8px 10px -6px rgba(0,0,0,.04);
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .logo-icon {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; color: #fff;
+  }
+  .header h1 {
+    font-size: 22px; font-weight: 700; letter-spacing: -.3px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .header-sub { font-size: 13px; color: var(--text-secondary); }
+  .stats {
+    display: flex; gap: 20px; font-size: 13px; color: var(--text-secondary);
+  }
+  .stats span { display: flex; align-items: center; gap: 4px; }
+  .stats strong { font-weight: 700; color: var(--text); }
+  .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+  .timeline-section { position: relative; padding-left: 40px; }
+  .timeline-section::before {
+    content: ''; position: absolute; left: 15px; top: 0; bottom: 0;
+    width: 2px; background: var(--timeline-color); border-radius: 2px;
+  }
+  .timeline-group { position: relative; margin-bottom: 20px; }
+  .timeline-dot {
+    position: absolute; left: -33px; top: 6px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--primary-light);
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px var(--primary-light);
+    z-index: 2;
+  }
+  .timeline-date {
+    font-size: 14px; font-weight: 600; color: var(--primary);
+    margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+  }
+  .timeline-date .mini-dot {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--primary-light);
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow);
+    transition: all .3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp .5s ease forwards;
+  }
+  .card:hover {
+    box-shadow: var(--shadow-hover);
+    border-color: var(--primary-light);
+    transform: translateY(-2px);
+  }
+  @keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .card-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 10px; }
+  .card-num {
+    flex-shrink: 0; width: 32px; height: 32px; border-radius: 8px;
+    background: var(--primary-bg); color: var(--primary);
+    font-size: 14px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .card-title-wrap { flex: 1; min-width: 0; }
+  .card-title {
+    font-size: 16px; font-weight: 600; color: var(--text);
+    line-height: 1.5; margin-bottom: 6px;
+  }
+  .card-title a { color: inherit; text-decoration: none; transition: color .2s; }
+  .card-title a:hover { color: var(--primary-light); }
+  .card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 12px; color: var(--text-secondary); }
+  .badge {
+    display: inline-flex; align-items: center;
+    padding: 2px 10px; border-radius: 20px;
+    font-size: 11px; font-weight: 600; letter-spacing: .3px;
+  }
+  .badge-source {
+    background: #f1f5f9; color: #475569;
+    max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .badge-time { color: #94a3b8; }
+  .card-summary {
+    font-size: 14px; color: var(--text-secondary);
+    line-height: 1.7; margin-top: 8px; padding-left: 46px;
+  }
+  .card-link {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 13px; color: var(--primary-light);
+    text-decoration: none; font-weight: 500;
+    margin-top: 10px; padding-left: 46px; transition: gap .2s;
+  }
+  .card-link:hover { gap: 8px; }
+  .footer {
+    text-align: center; padding: 40px 24px 60px;
+    color: var(--text-secondary); font-size: 13px;
+    border-top: 1px solid var(--border); margin-top: 40px;
+  }
+  .footer a { color: var(--primary-light); text-decoration: none; }
+  @media (max-width: 768px) {
+    .header h1 { font-size: 18px; }
+    .header-inner { flex-direction: column; align-items: flex-start; }
+    .stats { width: 100%; justify-content: space-between; }
+    .timeline-section { padding-left: 28px; }
+    .timeline-section::before { left: 9px; }
+    .timeline-dot { left: -23px; width: 12px; height: 12px; }
+    .card { padding: 16px; }
+    .card-summary, .card-link { padding-left: 0; }
+    .card-header { flex-direction: column; gap: 8px; }
+    .card-num { width: 28px; height: 28px; font-size: 12px; }
+  }
+  @media (max-width: 480px) {
+    .container { padding: 20px 12px; }
+    .header { padding: 14px 0; }
+    .card { padding: 14px; }
+    .stats { font-size: 12px; gap: 10px; flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="logo-icon">&#x1F4F7;</div>
+      <div>
+        <h1>CV 领域动态速览</h1>
+        <div class="header-sub">Computer Vision &middot; 学术档案库</div>
+      </div>
+    </div>
+    <div class="stats">
+      <span>&#x1F4C5; <strong>2026-06-23 ~ 2026-06-30</strong></span>
+      <span>&#x1F4C4; 共 <strong>17</strong> 篇</span>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="timeline-section" id="timeline"></div>
+</div>
+
+<footer class="footer">
+  数据来源：<a href="https://aihot.virxact.com" target="_blank">AI HOT</a> &middot; 精选CV领域动态 &middot; 2026年6月第4周
+</footer>
+
+<script>
+const PAPERS = [{"title": "Meta Brain2Qwerty v2：非侵入式脑电信号视觉解码研究", "source": "AI at Meta", "sourceUrl": "https://x.com/AIatMeta/status/2071566924803395741", "date": "2026-06-29T12:10:17Z", "summary": "Meta公布Brain2Qwerty v2，基于发表在Nature的v1，是性能最高的端到端管道，能从原始脑信号实时解码句子。从字符级性能提升至解码单词和语义，提高整体沟通准确性，有望帮助因脑损伤无法沟通的人群。", "type": "paper", "score": 79, "id": 1, "relTime": "18 小时前"}, {"title": "Agents-A1：35B MoE智能体模型通过扩展horizon达到万亿参数级性能", "source": "arXiv", "sourceUrl": "https://arxiv.org/abs/2606.30616", "date": "2026-06-29T00:00:00Z", "summary": "研究人员提出Agents-A1，35B参数的Mixture-of-Experts智能体模型，通过扩展智能体horizon达到万亿参数模型性能。构建长horizon知识-行动基础设施，生成平均45K token的智能体轨迹。对比万亿参数模型Kimi-K2.6和DeepSeek-V4-pro在多基准上领先。", "type": "paper", "score": 77, "id": 2, "relTime": "1 天前"}, {"title": "OSWorld 2.0：长时域真实世界计算机使用工作流视觉基准", "source": "arXiv", "sourceUrl": "https://arxiv.org/abs/2606.29537", "date": "2026-06-28T00:00:00Z", "summary": "OSWorld 2.0发布108个长时域计算机使用工作流，聚焦视觉空间精度、流交互、动态环境、跨源推理等真实挑战。每项任务用户中位数约1.6小时完成。500步二元完成指标下，Claude Opus 4.8得分最高仅20.6%，当前智能体在视觉GUI理解上远未达专业级。", "type": "paper", "score": 82, "id": 3, "relTime": "2 天前"}, {"title": "Runway API 推出广告本地化 Recipe", "source": "Runway", "sourceUrl": "https://x.com/runwayml/status/2070855164584726791", "date": "2026-06-27T13:02:00Z", "summary": "广告本地化现可通过Runway API以Recipe形式使用。用户可通过单次API调用翻译静态广告和图形资产，将Runway的图像理解与生成能力嵌入广告工作流，实现跨语言、跨市场的自动化视觉资产本地化。", "type": "product", "score": 66, "id": 4, "relTime": "2 天前"}, {"title": "小互IP Studio：开源个人IP配图图像生成Agent", "source": "xiaohu", "sourceUrl": "https://x.com/xiaohu/status/2070317717811540149", "date": "2026-06-26T01:26:23Z", "summary": "博主小互开源个人IP配图技能，包含31个原创角色（15个手绘线稿+16个谐音梗meme形象）及配图方法论。Agent可自动读取文章、规划配图类型（情绪图/示意图/四格漫画）、生成并自查返工。默认画风为手绘线稿淡彩，另备5种皮肤可切换。", "type": "tip", "score": 81, "id": 5, "relTime": "4 天前"}, {"title": "Midjourney V8.2 预览：加入 --preview 参数提前体验", "source": "Midjourney", "sourceUrl": "https://x.com/midjourney/status/2070223272072065228", "date": "2026-06-25T19:11:05Z", "summary": "Midjourney发布V8.2预览更新。加入--preview参数可提前体验V8.2的美学与个性化效果。V8.1推出的大批量草稿模式现支持搭配--sref random使用，生成24张低分辨率图价格仅为标准4张的一半，探索风格空间的速度比之前快24倍。", "type": "product", "score": 67, "id": 6, "relTime": "4 天前"}, {"title": "IBM 发布全球首款亚纳米级芯片（0.7nm），支撑AI/CV工作负载", "source": "IBM Newsroom", "sourceUrl": "https://newsroom.ibm.com/2026-06-25-ibm-debuts-worlds-first-sub-1-nanometer-chip-technology", "date": "2026-06-25T18:52:05Z", "summary": "IBM发布全球首款亚纳米级芯片技术，采用0.7nm节点与三维纳米堆叠架构。指甲盖大小集成近1000亿个晶体管，密度约为2nm芯片的两倍。相比2nm芯片性能提升50%，能效提升70%。SRAM面积缩减40%，支撑先进AI视觉工作负载的高带宽需求。", "type": "paper", "score": 78, "id": 7, "relTime": "4 天前"}, {"title": "Midjourney V8.1 草稿模式新增随机风格功能", "source": "Midjourney Updates", "sourceUrl": "https://updates.midjourney.com/random-styles-in-draft-mode", "date": "2026-06-25T18:50:16Z", "summary": "Midjourney V8.1的草稿模式添加随机风格功能。用户在提示词中加入--sref random即可一键生成24张不同风格的图片。草稿模式可通过点击提示栏的图标或添加--draft参数开启，大幅降低风格探索成本。", "type": "product", "score": 62, "id": 8, "relTime": "4 天前"}, {"title": "赫库兰尼姆古卷首次完整虚拟解读：CT扫描+机器学习成像", "source": "Vesuvius Challenge", "sourceUrl": "https://scrollprize.org/firstscroll", "date": "2026-06-25T18:03:58Z", "summary": "研究人员利用高分辨率X射线显微断层扫描和机器学习，完整虚拟展开并读取了赫库兰尼姆古卷PHerc.1667，为首卷被连续读取的纸莎草卷，内容为斯多葛哲学论著。所有数据与代码已公开。", "type": "paper", "score": 79, "id": 9, "relTime": "4 天前"}, {"title": "General Intuition 融资3.2亿美元：用游戏视觉数据训练通用AI智能体", "source": "TechCrunch", "sourceUrl": "https://techcrunch.com/2026/06/25/from-fortnite-to-robots-general-intuitions-2-3b-bet-that-video-games-can-train-ai-agents-for-the-real-world", "date": "2026-06-25T16:00:00Z", "summary": "General Intuition以23亿美元估值完成3.2亿美元融资。从游戏平台Medal获取数亿小时含按键标签的游戏操作数据，训练单一模型同时驾驭Fortnite等虚拟环境和四足机器人。AI智能体在游戏中连续运行100小时，机器人仅靠8分钟真实数据即可自主探索办公室。", "type": "industry", "score": 71, "id": 10, "relTime": "4 天前"}, {"title": "Figma Config 2026：设计画布扩展至3D深度与动画", "source": "The Decoder", "sourceUrl": "https://the-decoder.com/figma-bets-on-human-judgment-at-config-2026-while-the-ai-powering-its-canvas-belongs-to-someone-else", "date": "2026-06-24T16:49:01Z", "summary": "Figma在Config 2026将设计画布扩展至代码、动画、3D深度和着色器效果。新功能包括Code Layers、Motion动画、深度层、Shader及Generative Plugins。协作方面支持搜索复用AI提示词、保存技能、共享插件。", "type": "product", "score": 74, "id": 11, "relTime": "5 天前"}, {"title": "Gemini 3.5 Flash 集成 computer use：视觉感知与桌面操作", "source": "Google DeepMind", "sourceUrl": "https://deepmind.google/blog/introducing-computer-use-in-gemini-3-5-flash", "date": "2026-06-24T16:30:01Z", "summary": "Google DeepMind宣布computer use作为内置工具集成于Gemini 3.5 Flash，开发者可构建跨浏览器、移动端和桌面的智能体，实现视觉感知、推理与操作。采用针对性对抗训练，可选配企业防护系统以检测间接prompt注入。", "type": "product", "score": 70, "id": 12, "relTime": "5 天前"}, {"title": "Runway Agent 2.0：面向营销人员的AI视频广告创建平台", "source": "Runway", "sourceUrl": "https://runwayml.com/news/introducing-agent-2", "date": "2026-06-24T16:00:00Z", "summary": "Runway发布Agent 2.0，帮助营销人员创建、测试和优化广告、视频及营销活动。支持在对话中开发活动概念、生成变体并自动本地化；上传创意后导入Meta/YouTube/TikTok等平台数据由Agent分析生成待测广告；可一次性生成一周内容，自动裁切为多格式。", "type": "product", "score": 65, "id": 13, "relTime": "5 天前"}, {"title": "DFlash：块扩散草稿模型实现最高15倍吞吐量提升（视觉特征注入）", "source": "MarkTechPost", "sourceUrl": "https://www.marktechpost.com/2026/06/24/dflash-speculative-decoding-drafts-whole-token-blocks-in-parallel-for-up-to-15x-higher-throughput-on-nvidia-blackwell", "date": "2026-06-24T07:21:10Z", "summary": "DFlash由UC San Diego团队提出，是一种用于投机解码的轻量块扩散草稿模型。核心创新是将目标模型多层隐藏特征注入草稿模型每一层的Key-Value投影，使接受长度随草稿深度增长。在NVIDIA Blackwell上gpt-oss-120b模型吞吐量提升最高15倍。", "type": "paper", "score": 74, "id": 14, "relTime": "5 天前"}, {"title": "Causal-rCM：自回归视频扩散蒸馏的统一教师强制与自强制方案", "source": "HuggingFace Daily Papers", "sourceUrl": "https://arxiv.org/abs/2606.25473", "date": "2026-06-24T00:00:00Z", "summary": "Causal-rCM将扩散蒸馏框架rCM扩展至自回归视频扩散，提出教师强制(TF)与自强制(SF)互补训练范式，并发布统一开源算法。通过自定义掩码FlashAttention-2 JVP内核，首次实现基于教师强制的连续时间一致性模型用于自回归视频扩散，收敛速度比离散版本快10倍。蒸馏后的2步因果Wan2.1-1.3B模型在仅1或2步采样下取得VBench-T2V分数84.63，达到帧级和块级流式视频生成SOTA。", "type": "paper", "score": 70, "id": 15, "relTime": "6 天前"}, {"title": "FastWan-QAD：单卡RTX 5090上1.8秒生成5秒视频", "source": "Sky Computing Lab", "sourceUrl": "https://x.com/haoailab/status/2069493820732170695", "date": "2026-06-23T18:52:30Z", "summary": "Sky Computing Lab发布FastWan-QAD视频生成模型系列，基于FastVideo的量化感知蒸馏(QAD)方案训练。在单张NVIDIA GeForce RTX 5090上，端到端生成一段5秒480P视频仅需1.8秒。模型、代码及博客已完整开源，极大降低了高质量视频生成的计算门槛。", "type": "model", "score": 73, "id": 16, "relTime": "6 天前"}, {"title": "Mistral OCR 4：新一代文档图像理解模型", "source": "Mistral AI", "sourceUrl": "https://mistral.ai/news/ocr-4", "date": "2026-06-23T14:24:55Z", "summary": "Mistral AI发布OCR 4，新增边界框、块分类（标题、表格、方程式、签名等）及逐页逐词置信度分数。支持170种语言、10个语系，可单容器全自托管部署。在OlmOCRBench上得分85.20，独立标注者偏好率平均72%。", "type": "model", "score": 68, "id": 17, "relTime": "6 天前"}];
+const TYPE_COLORS = {
+  "paper": "#6366f1",
+  "model": "#0ea5e9",
+  "product": "#f59e0b",
+  "tip": "#10b981",
+  "industry": "#ec4899"
+};
+const TYPE_LABELS = {
+  "paper": "论文",
+  "model": "模型",
+  "product": "产品",
+  "tip": "技巧",
+  "industry": "行业"
+};
+
+function fmtDate(iso) {
+  var d = new Date(iso);
+  var Y = d.getFullYear();
+  var M = String(d.getMonth()+1).padStart(2,"0");
+  var D = String(d.getDate()).padStart(2,"0");
+  var h = String(d.getHours()).padStart(2,"0");
+  var m = String(d.getMinutes()).padStart(2,"0");
+  return Y+"-"+M+"-"+D+" "+h+":"+m;
+}
+
+function render() {
+  var c = document.getElementById("timeline");
+  var html = "";
+  var lastDate = "";
+
+  PAPERS.forEach(function(p, i) {
+    var dk = p.date.slice(0,10);
+    var label = TYPE_LABELS[p.type] || "其他";
+    var color = TYPE_COLORS[p.type] || "#94a3b8";
+
+    if (dk !== lastDate) {
+      lastDate = dk;
+      html += '<div class="timeline-group">';
+      html += '<div class="timeline-dot"></div>';
+      html += '<div class="timeline-date"><span class="mini-dot"></span>'+fmtDate(p.date).slice(0,10)+'</div>';
+    }
+
+    var delay = (i * 0.05).toFixed(2);
+
+    html += [
+      '<div class="card" style="animation-delay:'+delay+'s">',
+      '  <div class="card-header">',
+      '    <div class="card-num">'+p.id+'</div>',
+      '    <div class="card-title-wrap">',
+      '      <div class="card-title"><a href="'+p.sourceUrl+'" target="_blank" rel="noopener">'+p.title+'</a></div>',
+      '      <div class="card-meta">',
+      '        <span class="badge" style="background:'+color+'18;color:'+color+'">'+label+'</span>',
+      '        <span class="badge badge-source" title="'+p.source+'">'+p.source+'</span>',
+      '        <span class="badge badge-time">'+p.relTime+'</span>',
+      '      </div>',
+      '    </div>',
+      '  </div>',
+      '  <div class="card-summary">'+p.summary+'</div>',
+      '  <a class="card-link" href="'+p.sourceUrl+'" target="_blank" rel="noopener">阅读原文 →</a>',
+      '</div>'
+    ].join("\n");
+
+    var nextDate = PAPERS[i+1] ? PAPERS[i+1].date.slice(0,10) : null;
+    if (dk !== nextDate) {
+      html += '</div>';
+    }
+  });
+
+  c.innerHTML = html;
+}
+
+render();
+</script>
+</body>
+</html>
