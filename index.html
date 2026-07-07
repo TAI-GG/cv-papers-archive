@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV 领域动态速览 &middot; 第28周</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --primary: #1e40af;
+    --primary-light: #3b82f6;
+    --primary-bg: #eff6ff;
+    --accent: #6366f1;
+    --text: #1e293b;
+    --text-secondary: #64748b;
+    --border: #e2e8f0;
+    --card-bg: #ffffff;
+    --bg: #f8fafc;
+    --timeline-color: #c7d2fe;
+    --radius: 12px;
+    --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+    --shadow-hover: 0 10px 25px -5px rgba(0,0,0,.08), 0 8px 10px -6px rgba(0,0,0,.04);
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+  }
+  .header-inner {
+    max-width: 1100px; margin: 0 auto; padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+  .header-left { display: flex; align-items: center; gap: 14px; }
+  .logo-icon {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    font-size: 20px; color: #fff;
+  }
+  .header h1 {
+    font-size: 22px; font-weight: 700; letter-spacing: -.3px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .header-sub { font-size: 13px; color: var(--text-secondary); }
+  .stats { display: flex; gap: 20px; font-size: 13px; color: var(--text-secondary); }
+  .stats span { display: flex; align-items: center; gap: 4px; }
+  .stats strong { font-weight: 700; color: var(--text); }
+  .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+  .timeline-section { position: relative; padding-left: 40px; }
+  .timeline-section::before {
+    content: ''; position: absolute; left: 15px; top: 0; bottom: 0;
+    width: 2px; background: var(--timeline-color); border-radius: 2px;
+  }
+  .timeline-group { position: relative; margin-bottom: 20px; }
+  .timeline-dot {
+    position: absolute; left: -33px; top: 6px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--primary-light);
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px var(--primary-light);
+    z-index: 2;
+  }
+  .timeline-date {
+    font-size: 14px; font-weight: 600; color: var(--primary);
+    margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+  }
+  .timeline-date .mini-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--primary-light); }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow);
+    transition: all .3s ease;
+    opacity: 0; transform: translateY(20px);
+    animation: fadeInUp .5s ease forwards;
+  }
+  .card:hover { box-shadow: var(--shadow-hover); border-color: var(--primary-light); transform: translateY(-2px); }
+  @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+  .card-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 10px; }
+  .card-num {
+    flex-shrink: 0; width: 32px; height: 32px; border-radius: 8px;
+    background: var(--primary-bg); color: var(--primary);
+    font-size: 14px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .card-title-wrap { flex: 1; min-width: 0; }
+  .card-title { font-size: 16px; font-weight: 600; color: var(--text); line-height: 1.5; margin-bottom: 6px; }
+  .card-title a { color: inherit; text-decoration: none; transition: color .2s; }
+  .card-title a:hover { color: var(--primary-light); }
+  .card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 12px; color: var(--text-secondary); }
+  .badge {
+    display: inline-flex; align-items: center;
+    padding: 2px 10px; border-radius: 20px;
+    font-size: 11px; font-weight: 600; letter-spacing: .3px;
+  }
+  .badge-source { background: #f1f5f9; color: #475569; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .badge-time { color: #94a3b8; }
+  .card-summary { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-top: 8px; padding-left: 46px; }
+  .card-link {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 13px; color: var(--primary-light);
+    text-decoration: none; font-weight: 500;
+    margin-top: 10px; padding-left: 46px; transition: gap .2s;
+  }
+  .card-link:hover { gap: 8px; }
+  .footer {
+    text-align: center; padding: 40px 24px 60px;
+    color: var(--text-secondary); font-size: 13px;
+    border-top: 1px solid var(--border); margin-top: 40px;
+  }
+  .footer a { color: var(--primary-light); text-decoration: none; }
+  .summary-more { color: #94a3b8; font-size: 12px; cursor: pointer; }
+  @media (max-width: 768px) {
+    .header h1 { font-size: 18px; }
+    .header-inner { flex-direction: column; align-items: flex-start; }
+    .stats { width: 100%; justify-content: space-between; }
+    .timeline-section { padding-left: 28px; }
+    .timeline-section::before { left: 9px; }
+    .timeline-dot { left: -23px; width: 12px; height: 12px; }
+    .card { padding: 16px; }
+    .card-summary, .card-link { padding-left: 0; }
+    .card-header { flex-direction: column; gap: 8px; }
+    .card-num { width: 28px; height: 28px; font-size: 12px; }
+  }
+  @media (max-width: 480px) {
+    .container { padding: 20px 12px; }
+    .header { padding: 14px 0; }
+    .card { padding: 14px; }
+    .stats { font-size: 12px; gap: 10px; flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="logo-icon">&#x1F4F7;</div>
+      <div>
+        <h1>CV 领域动态速览</h1>
+        <div class="header-sub">Computer Vision &middot; 学术档案库</div>
+      </div>
+    </div>
+    <div class="stats">
+      <span>&#x1F4C5; <strong>2026-06-30 ~ 2026-07-03</strong></span>
+      <span>&#x1F4C4; 共 <strong>10</strong> 篇</span>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="timeline-section" id="timeline"></div>
+</div>
+
+<footer class="footer">
+  数据来源：<a href="https://aihot.virxact.com" target="_blank">AI HOT</a> &middot; 第28周</footer>
+
+<script>
+var PAPERS = [{"id": 1, "title": "生数科技发布 Vidu S1，推动视频生成迈向\"实时交互\"新时代", "source": "公众号：生数科技（Vidu·视频）", "sourceUrl": "https://mp.weixin.qq.com/s/RuukpnoOA2tI0ERCNrLgtQ", "date": "2026-07-03T11:17:47.000Z", "summary": "7月3日，生数科技在2026全球数字经济大会上发布Vidu S1实时交互模型，支持实时视频通话和语音控制视频走向，实现无限时长连续互动。模型采用自回归扩散路线，基于已生成画面和语音指令持续预测后续内容；无需传统建模，一张图片即可创建角色并自定义音色。Vidu S1在540P分辨率下实现25FPS（最高42FPS）实时生成，通过TurboDiffusion等技术降低计算成本，已开启内测。", "type": "model", "relTime": "3天前"}, {"id": 2, "title": "JoyAI App 上线 UGC 数字人功能，用户可\"捏\"出专属虚拟玩伴", "source": "公众号：京东JoyAI", "sourceUrl": "https://mp.weixin.qq.com/s/XfpxdblzNWa5HxahRoT9pg", "date": "2026-07-03T10:03:25.000Z", "summary": "JoyAI App 近日上线 UGC 数字人功能，用户只需上传一张照片即可生成专属虚拟数字分身，支持一键复刻写实形象或通过模板重塑为卡通风格，搭配用户自己的语音即可解锁专属陪伴。该功能复用\"万能博士\"技术底座，集成 JoyAI 语言、语音、数字人大模型，实现行业领先的全双工对话，支持随时打断、自然接话。数字人兼具情绪陪伴与全能助手属性，可提供点外卖、金融咨询、学英语、规划行程等生活服务。", "type": "model", "relTime": "3天前"}, {"id": 3, "title": "Wan Video 推出\"音乐伴舞\"新功能", "source": "X：阿里云 / Alibaba Cloud (@alibaba_cloud)", "sourceUrl": "https://x.com/alibaba_cloud/status/2072967570441834771", "date": "2026-07-03T08:55:57.000Z", "summary": "Wan Video 新功能：**音乐伴舞** 💃 上传一个角色，添加一首歌曲，让 Wan Video 生成与节奏同步的舞蹈视频。 可用舞种： • 街舞 • 踢踏舞 • 拉丁舞 • K-Pop • 中国古典舞 从节拍至动作，你的角色随音乐起舞。  前往 wan.video 体验音乐伴舞 👉 https://int.alibabacloud.com/m/1000412428/", "type": "paper", "relTime": "3天前"}, {"id": 4, "title": "claude-real-video ─ 让任何大语言模型（LLM）都能观看视频", "source": "Hacker News 热门（buzzing.cc 中文翻译）", "sourceUrl": "https://github.com/HUANGCHIHHUNGLeo/claude-real-video", "date": "2026-07-03T04:56:06.814Z", "summary": "claude-real-video 是一个开源工具，让大语言模型基于视频画面而非字幕进行理解。它通过场景变化检测提取关键帧、滑动窗口去重并转录音频，生成干净的本地文件夹供模型读取。支持 YouTube 链接或本地文件，依赖 ffmpeg 和 Whisper，通过 pip 安装。全部处理在本地完成，不上传云端。", "type": "tip", "relTime": "3天前"}, {"id": 5, "title": "browser-use 发布开源 AI 视频剪辑 Skill「video-use」", "source": "X：邵猛 (@shao__meng)", "sourceUrl": "https://x.com/shao__meng/status/2072644710523691110", "date": "2026-07-02T11:33:01.000Z", "summary": "browser-use 团队推出面向 Codex、Claude Code 等 AI 编码智能体的开源 Skill「video-use」，让 LLM 通过 ElevenLabs Scribe 将音频转写为约 12KB 文本（含逐词时间戳、说话人分离、事件标记），仅在决策点调用 timeline_view.py 生成 PNG 帧图。技术流水线包括转写、打包、生成 JSON 格式 EDL、ffmp...", "type": "tip", "relTime": "4天前"}, {"id": 6, "title": "表示分布匹配（RDM）用于一步视觉生成", "source": "HuggingFace Daily Papers（社区热门论文）", "sourceUrl": "https://arxiv.org/abs/2607.02375", "date": "2026-07-02T00:00:00.000Z", "summary": "表示分布匹配（RDM）通过匹配冻结预训练编码器下的生成与参考特征分布来训练一步图像生成器。三个发现：经典MMD正确估计后成为可扩展目标；生成批次大小最优超过2048；单一表示可被欺骗，需匹配平衡编码器组合并采用独立于训练损失的SW_r14评估。改进的iRDM在ImageNet上以SW_r14 1.30达一步生成SOTA，PickScore在71.2%样本上偏好iRDM。该方法将四步FLUX....", "type": "paper", "relTime": "5天前"}, {"id": 7, "title": "RL微调VLM的鲁棒性与思维链一致性研究", "source": "Apple Machine Learning Research（RSS）", "sourceUrl": "https://machinelearning.apple.com/research/robustness-chain-thought-consistency", "date": "2026-07-02T00:00:00.000Z", "summary": "强化学习（RL）微调被扩展至视觉语言模型（VLM）。研究发现，简单的文本扰动--误导性标题或错误思维链（CoT）--会显著降低模型鲁棒性和置信度，且开源模型衰退更明显。闭源模型呈现类似失败模式，但鲁棒性和推理一致性更强。进一步分析揭示准确性与忠实性的权衡：微调提升基准准确率，但同时侵蚀CoT的可靠性及对上下文变化的鲁棒性；对抗性增强可改善鲁棒性，却无法阻止忠实性漂移。引入忠实性感知奖励能恢复...", "type": "paper", "relTime": "5天前"}, {"id": 8, "title": "VideoFlexTok：可变长度粗到细视频分词", "source": "Apple Machine Learning Research（RSS）", "sourceUrl": "https://machinelearning.apple.com/research/videoflextok", "date": "2026-07-02T00:00:00.000Z", "summary": "VideoFlexTok提出一种可变长度token序列的视频表示方法，采用粗到细结构--首个token捕捉语义和运动等抽象信息，后续token添加精细细节，生成流解码器支持任意token数量的视频重建。相比传统3D网格分词，该结构允许根据下游需求调整token数，在相同预算下编码更长视频。在类别和文本到视频生成任务中，VideoFlexTok以1.1B参数（5.2B的1/5）达到可比生成质量...", "type": "paper", "relTime": "5天前"}, {"id": 9, "title": "Apple Creator Studio 更新：更智能、更快速、更互联", "source": "Apple：Newsroom（RSS）", "sourceUrl": "https://www.apple.com/newsroom/2026/06/apple-creator-studio-gets-smarter-faster-and-more-connected", "date": "2026-06-30T16:59:24.233Z", "summary": "Apple Creator Studio 推出多项 AI 增强更新。Final Cut Pro 新增 on-device AI 驱动的 Generate Captions（自动转录音频生成字幕）和 Edit Detection（自动检测剪辑点）。Mac 版加入 Auto Mask（自动识别皮肤、天空等主体）、增强的 Match Color 和 Advanced Trimming。支持将帧发送...", "type": "product", "relTime": "6天前"}, {"id": 10, "title": "Google DeepMind 发布 Nano Banana 2 Lite 和 Gemini Omni Flash", "source": "Google DeepMind：Blog（RSS）", "sourceUrl": "https://deepmind.google/blog/start-building-with-nano-banana-2-lite-and-gemini-omni-flash", "date": "2026-06-30T16:02:40.000Z", "summary": "Google DeepMind 推出 Nano Banana 2 Lite（gemini-3.1-flash-lite-image），为 Nano Banana 系列速度最快、成本最低的图像模型，文本到图像输出仅需 4 秒，每 1K 分辨率图像成本 $0.034，已上线 Google AI Studio、Gemini API 及消费者产品（AI Mode in Search、Gemini a...", "type": "model", "relTime": "6天前"}];
+
+var TYPE_COLORS = {
+  "paper": "#6366f1",
+  "model": "#0ea5e9",
+  "product": "#f59e0b",
+  "tip": "#10b981",
+  "industry": "#ec4899"
+};
+var TYPE_LABELS = {
+  "paper": "论文",
+  "model": "模型",
+  "product": "产品",
+  "tip": "技巧",
+  "industry": "行业"
+};
+
+function fmtDate(iso) {
+  var d = new Date(iso);
+  return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+}
+
+function render() {
+  var c = document.getElementById("timeline");
+  var html = "";
+  var lastDate = "";
+
+  PAPERS.forEach(function(p, i) {
+    var dk = p.date.slice(0,10);
+    var label = TYPE_LABELS[p.type] || "其他";
+    var color = TYPE_COLORS[p.type] || "#94a3b8";
+
+    if (dk !== lastDate) {
+      lastDate = dk;
+      html += '<div class="timeline-group">';
+      html += '<div class="timeline-dot"></div>';
+      html += '<div class="timeline-date"><span class="mini-dot"></span>'+fmtDate(p.date)+'</div>';
+    }
+
+    var delay = (i * 0.06).toFixed(2);
+
+    html += [
+      '<div class="card" style="animation-delay:'+delay+'s">',
+      '  <div class="card-header">',
+      '    <div class="card-num">'+p.id+'</div>',
+      '    <div class="card-title-wrap">',
+      '      <div class="card-title"><a href="'+p.sourceUrl+'" target="_blank" rel="noopener">'+_e(p.title)+'</a></div>',
+      '      <div class="card-meta">',
+      '        <span class="badge" style="background:'+color+'18;color:'+color+'">'+label+'</span>',
+      '        <span class="badge badge-source" title="'+_e(p.source)+'">'+_e(p.source)+'</span>',
+      '        <span class="badge badge-time">'+p.relTime+'</span>',
+      '      </div>',
+      '    </div>',
+      '  </div>',
+      '  <div class="card-summary">'+_e(p.summary)+'</div>',
+      '  <a class="card-link" href="'+p.sourceUrl+'" target="_blank" rel="noopener">阅读原文 →</a>',
+      '</div>'
+    ].join("\n");
+
+    var nextDate = PAPERS[i+1] ? PAPERS[i+1].date.slice(0,10) : null;
+    if (dk !== nextDate) {
+      html += '</div>';
+    }
+  });
+
+  c.innerHTML = html;
+}
+
+function _e(s) {
+  var d = document.createElement("div");
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+render();
+</script>
+</body>
+</html>
