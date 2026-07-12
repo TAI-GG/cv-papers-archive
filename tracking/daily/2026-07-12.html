@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOT Daily Digest · 目标跟踪每日速览</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--primary:#0f766e;--primary-light:#14b8a6;--primary-bg:#f0fdfa;--accent:#0ea5e9;
+        --text:#1e293b;--text-secondary:#64748b;--border:#e2e8f0;--card-bg:#fff;--bg:#f8fafc}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
+       background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);
+          border-bottom:1px solid var(--border)}
+  .header-inner{max-width:1080px;margin:0 auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .logo{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--accent));
+        display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;flex-shrink:0}
+  .header h1{font-size:20px;font-weight:700;background:linear-gradient(135deg,var(--primary),var(--accent));
+             -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .header-sub{font-size:12px;color:var(--text-secondary)}
+  .stats{display:flex;gap:18px;font-size:13px;color:var(--text-secondary)}
+  .stats strong{color:var(--text)}
+  .nav-bar{max-width:1080px;margin:0 auto;padding:10px 24px;display:flex;gap:10px;flex-wrap:wrap;border-top:1px solid var(--border)}
+  .nav-bar a{font-size:13px;font-weight:600;color:var(--text-secondary);text-decoration:none;padding:5px 14px;
+             border-radius:20px;background:#f1f5f9;transition:all .2s}
+  .nav-bar a:hover{color:var(--primary);background:var(--primary-bg)}
+  .nav-bar a.current{color:#fff;background:var(--primary)}
+  .container{max-width:1080px;margin:0 auto;padding:32px 24px}
+  .intro{background:var(--primary-bg);border:1px solid #ccfbf1;border-radius:12px;padding:18px 22px;margin-bottom:26px}
+  .intro p{font-size:14px;color:#134e4a;margin:4px 0}
+  h2{font-size:20px;margin:30px 0 14px;color:var(--primary);border-left:4px solid var(--primary);padding-left:10px}
+  h3{font-size:16px;margin:22px 0 10px;color:var(--text)}
+  h4{font-size:14px;margin:16px 0 8px;color:var(--text-secondary)}
+  table.rpt-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px;background:#fff;
+                  box-shadow:0 1px 3px rgba(0,0,0,.05);border-radius:10px;overflow:hidden}
+  table.rpt-table th,table.rpt-table td{border:1px solid var(--border);padding:9px 11px;text-align:left;vertical-align:top}
+  table.rpt-table th{background:var(--primary);color:#fff;font-weight:600}
+  table.rpt-table tr:nth-child(even){background:#f8fafc}
+  .paper{border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin:14px 0;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .paper h3{margin:0 0 6px}
+  .paper .meta{font-size:12px;color:var(--text-secondary);margin-bottom:8px}
+  .paper .meta a{color:var(--primary-light);text-decoration:none}
+  .summary-en{font-size:14px;color:var(--text);border-left:3px solid var(--accent);padding-left:12px;margin:8px 0}
+  .summary-cn{font-size:14px;color:#334155;border-left:3px solid var(--primary-light);padding-left:12px;margin:8px 0;background:#f0fdfa}
+  .badge{display:inline-block;font-size:11px;font-weight:600;padding:2px 10px;border-radius:20px;
+         background:var(--primary-bg);color:var(--primary);margin-bottom:6px}
+  .footer{text-align:center;padding:36px 24px 50px;color:var(--text-secondary);font-size:13px;border-top:1px solid var(--border);margin-top:40px}
+  .footer a{color:var(--primary-light);text-decoration:none}
+  ul,ol{margin:8px 0 8px 22px}
+  blockquote{border-left:3px solid var(--primary);background:#f0fdfa;padding:8px 14px;margin:10px 0;color:#134e4a}
+  img{max-width:100%}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <div style="display:flex;align-items:center;gap:14px">
+      <div class="logo">&#x1F3A5;</div>
+      <div>
+        <h1>视觉目标跟踪 · 论文专栏</h1>
+        <div class="header-sub">Visual Object Tracking &middot; 中英双语论文档案</div>
+      </div>
+    </div>
+  </div>
+  <nav class="nav-bar"><a href="/index.html">主站·本周</a><a href="/tracking/index.html" class="current">目标跟踪</a><a href="/tracking/reports/index.html">历史报告</a></nav>
+</header>
+<div class="container">
+<div class='intro'><p><strong>Daily Digest / 每日速览：</strong>2026-07-12</p><p>当日新增视觉目标跟踪相关论文（来源：arXiv）。</p></div><p>今日暂无新论文（跟踪类论文并非每日都有更新）。</p>
+</div>
+<footer class="footer">
+  数据来源：arXiv API &middot; 翻译：MyMemory &middot; 每日自动更新<br>
+  <a href="/index.html">返回 CV 领域动态速览</a>
+</footer>
+</body>
+</html>

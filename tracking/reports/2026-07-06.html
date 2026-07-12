@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOT Report 2026-07-06 · 目标跟踪报告 2026-07-06</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--primary:#0f766e;--primary-light:#14b8a6;--primary-bg:#f0fdfa;--accent:#0ea5e9;
+        --text:#1e293b;--text-secondary:#64748b;--border:#e2e8f0;--card-bg:#fff;--bg:#f8fafc}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
+       background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);
+          border-bottom:1px solid var(--border)}
+  .header-inner{max-width:1080px;margin:0 auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .logo{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--accent));
+        display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;flex-shrink:0}
+  .header h1{font-size:20px;font-weight:700;background:linear-gradient(135deg,var(--primary),var(--accent));
+             -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .header-sub{font-size:12px;color:var(--text-secondary)}
+  .stats{display:flex;gap:18px;font-size:13px;color:var(--text-secondary)}
+  .stats strong{color:var(--text)}
+  .nav-bar{max-width:1080px;margin:0 auto;padding:10px 24px;display:flex;gap:10px;flex-wrap:wrap;border-top:1px solid var(--border)}
+  .nav-bar a{font-size:13px;font-weight:600;color:var(--text-secondary);text-decoration:none;padding:5px 14px;
+             border-radius:20px;background:#f1f5f9;transition:all .2s}
+  .nav-bar a:hover{color:var(--primary);background:var(--primary-bg)}
+  .nav-bar a.current{color:#fff;background:var(--primary)}
+  .container{max-width:1080px;margin:0 auto;padding:32px 24px}
+  .intro{background:var(--primary-bg);border:1px solid #ccfbf1;border-radius:12px;padding:18px 22px;margin-bottom:26px}
+  .intro p{font-size:14px;color:#134e4a;margin:4px 0}
+  h2{font-size:20px;margin:30px 0 14px;color:var(--primary);border-left:4px solid var(--primary);padding-left:10px}
+  h3{font-size:16px;margin:22px 0 10px;color:var(--text)}
+  h4{font-size:14px;margin:16px 0 8px;color:var(--text-secondary)}
+  table.rpt-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px;background:#fff;
+                  box-shadow:0 1px 3px rgba(0,0,0,.05);border-radius:10px;overflow:hidden}
+  table.rpt-table th,table.rpt-table td{border:1px solid var(--border);padding:9px 11px;text-align:left;vertical-align:top}
+  table.rpt-table th{background:var(--primary);color:#fff;font-weight:600}
+  table.rpt-table tr:nth-child(even){background:#f8fafc}
+  .paper{border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin:14px 0;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .paper h3{margin:0 0 6px}
+  .paper .meta{font-size:12px;color:var(--text-secondary);margin-bottom:8px}
+  .paper .meta a{color:var(--primary-light);text-decoration:none}
+  .summary-en{font-size:14px;color:var(--text);border-left:3px solid var(--accent);padding-left:12px;margin:8px 0}
+  .summary-cn{font-size:14px;color:#334155;border-left:3px solid var(--primary-light);padding-left:12px;margin:8px 0;background:#f0fdfa}
+  .badge{display:inline-block;font-size:11px;font-weight:600;padding:2px 10px;border-radius:20px;
+         background:var(--primary-bg);color:var(--primary);margin-bottom:6px}
+  .footer{text-align:center;padding:36px 24px 50px;color:var(--text-secondary);font-size:13px;border-top:1px solid var(--border);margin-top:40px}
+  .footer a{color:var(--primary-light);text-decoration:none}
+  ul,ol{margin:8px 0 8px 22px}
+  blockquote{border-left:3px solid var(--primary);background:#f0fdfa;padding:8px 14px;margin:10px 0;color:#134e4a}
+  img{max-width:100%}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <div style="display:flex;align-items:center;gap:14px">
+      <div class="logo">&#x1F3A5;</div>
+      <div>
+        <h1>视觉目标跟踪 · 论文专栏</h1>
+        <div class="header-sub">Visual Object Tracking &middot; 中英双语论文档案</div>
+      </div>
+    </div>
+  </div>
+  <nav class="nav-bar"><a href="/index.html">主站·本周</a><a href="/tracking/index.html">目标跟踪</a><a href="/tracking/reports/index.html" class="current">历史报告</a></nav>
+</header>
+<div class="container">
+<div class='intro'><p><strong>Imported report / 导入报告：</strong>2026-07-06</p><p>本页由 TAI-GG/visual-tracking-papers 的历史 markdown 报告转换而来，内容为中英双语原文。</p></div><h1>Visual Object Tracking — Weekly Paper Report / 视觉目标跟踪 — 每周论文报告</h1>
+<p><strong>Report Period / 报告周期:</strong> 2026-06-29 ~ 2026-07-06</p>
+<p><strong>Sources / 数据来源:</strong> arXiv (cs.CV), Google Scholar</p>
+<p><strong>Generated / 生成日期:</strong> 2026-07-06</p>
+<hr>
+<h2>Paper Summary Table / 论文汇总表</h2>
+<table class="rpt-table"><thead><tr><th>No. / 序号</th><th>Title (EN) / 英文标题</th><th>Title (CN) / 中文标题</th><th>Authors / 作者</th><th>Source / 来源</th><th>Category / 方法类别</th><th>Link / 链接</th></tr></thead><tbody><tr><td>1</td><td>SFDATrack: Generalized Source-Free Domain Adaptive Tracking Under Adverse Weather Conditions</td><td>SFDATrack：恶劣天气条件下的广义无源域自适应跟踪</td><td>Siyuan Yao, Ziqi Wang, Ruiqi Yu, Junqi Huang, Wenqi Ren, Xiaochun Cao</td><td>arXiv 2607.00369</td><td>Domain Adaptation &amp; Robust Tracking / 域自适应与鲁棒跟踪</td><td><a href="https://arxiv.org/abs/2607.00369" target="_blank" rel="noopener">arXiv</a></td></tr><tr><td>2</td><td>Rethinking Generic Object Tracking Toward Human-Level Perceptual Intelligence</td><td>重新思考通用目标跟踪：迈向人类级别的感知智能</td><td>Shih-Fang Chen</td><td>arXiv 2607.01395</td><td>Generic Object Tracking / 通用目标跟踪</td><td><a href="https://arxiv.org/abs/2607.01395" target="_blank" rel="noopener">arXiv</a></td></tr><tr><td>3</td><td>HieDG: A Hierarchical Discrete Geometry-Guided Framework for Multi-Animal Tracking</td><td>HieDG：层次化离散几何引导的多动物跟踪框架</td><td>Chenxun Deng, Zhongde Zhang, Ye Yuan, Chengyang Zhang, Yifan Zhang, Bohao Chen, Hongying Yan, Hang Zhou, Hua Han, Xi Chen</td><td>arXiv 2607.00494 (ECCV 2026)</td><td>Multi-Object Tracking / 多目标跟踪</td><td><a href="https://arxiv.org/abs/2607.00494" target="_blank" rel="noopener">arXiv</a></td></tr><tr><td>4</td><td>SUMO: Segment and Track Any Motion with Nonlinear State Space Models</td><td>SUMO：基于非线性状态空间模型的运动分割与跟踪</td><td>Kexin Tian, Sixu Li, Keshu Wu, Yang Zhou, Zhengzhong Tu</td><td>arXiv 2606.29861</td><td>Novel Architecture / 新型架构</td><td><a href="https://arxiv.org/abs/2606.29861" target="_blank" rel="noopener">arXiv</a></td></tr><tr><td>5</td><td>FalconTrack: Photorealistic Auto-Labeled Perception and Physics-Aware Vision-Based Aerial Tracking</td><td>FalconTrack：逼真自动标注感知与物理感知的视觉无人机跟踪</td><td>Yan Miao, Karteek Gandiboyina, Noah Giles, Hideki Okamoto, Bardh Hoxha, Georgios Fainekos, Sayan Mitra</td><td>arXiv 2606.29783</td><td>Aerial / UAV Tracking / 无人机跟踪</td><td><a href="https://arxiv.org/abs/2606.29783" target="_blank" rel="noopener">arXiv</a></td></tr><tr><td>6</td><td>PS-MOT: Cultivating Instance Awareness from Point Seeds for Multi-Object Tracking</td><td>PS-MOT：从点种子培育实例感知用于多目标跟踪</td><td>Kai Luo, Fei Teng, Mengfei Duan, Wanjun Jia, Xu Wang, Hao Shi, Kunyu Peng, Zhiyong Li, Kailun Yang</td><td>arXiv 2606.30476</td><td>Multi-Object Tracking / 多目标跟踪</td><td><a href="https://arxiv.org/abs/2606.30476" target="_blank" rel="noopener">arXiv</a></td></tr><tr><td>7</td><td>CylindTrack: Depth-Aware Cylindrical Motion Modeling for Panoramic Multi-Object Tracking</td><td>CylindTrack：深度感知柱面运动建模用于全景多目标跟踪</td><td>Buyin Deng, Kai Luo, Lingxin Huang, Xinqi Liu, Fei Cheng, Hang Zheng, Liming Yin, Kailun Yang</td><td>arXiv 2606.30097</td><td>Multi-Object Tracking / 多目标跟踪</td><td><a href="https://arxiv.org/abs/2606.30097" target="_blank" rel="noopener">arXiv</a></td></tr></tbody></table>
+<hr>
+<h2>Detailed Papers by Topic / 按主题分组的论文详情</h2>
+<h3>Topic 1: Domain Adaptation &amp; Robust Tracking / 域自适应与鲁棒跟踪</h3>
+<h4>1. SFDATrack: Generalized Source-Free Domain Adaptive Tracking Under Adverse Weather Conditions</h4>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2607.00369" target="_blank" rel="noopener">2607.00369</a> | <strong>Date / 日期</strong>: 2026-07-01 (submitted 2026-06-30)</p>
+<p><strong>Authors / 作者</strong>: Siyuan Yao, Ziqi Wang, Ruiqi Yu, Junqi Huang, Wenqi Ren, Xiaochun Cao</p>
+<p>[EN] This paper addresses the challenge of maintaining reliable visual tracking in adverse weather conditions (fog, rain, snow, haze) without access to the original source-domain training data. The proposed Source-Free Domain Adaptive Tracking (SFDA-Track) framework operates exclusively on target-domain footage. The architecture features a mean-teacher backbone equipped with Dual Interactive Mamba layers that extract weather-resilient features through bidirectional selective scanning. A hyperspherical prototype projection mechanism maps these features into a shared latent space, ensuring robust adaptability across diverse climate conditions. This approach eliminates the need for source data while achieving competitive tracking performance in degraded visual environments.</p>
+<p>[CN] 本文解决了在恶劣天气条件（雾、雨、雪、霾）下保持可靠视觉跟踪的挑战，且无需访问原始源域训练数据。所提出的无源域自适应跟踪（SFDA-Track）框架完全基于目标域数据进行自适应。架构采用配备双重交互式Mamba层的均值教师骨干网络，通过双向选择性扫描提取抗天气特征。超球原型投影机制将特征映射到共享潜在空间，确保在多种气候条件下的鲁棒自适应能力。该方法无需源域数据即可在退化视觉环境中实现有竞争力的跟踪性能。</p>
+<p><strong>Key Methods / 关键方法</strong>: Mean-teacher backbone with Dual Interactive Mamba layers / 配备双重交互式Mamba层的均值教师骨干网络; Hyperspherical prototype projection / 超球原型投影</p>
+<hr>
+<h4>2. FalconTrack: Photorealistic Auto-Labeled Perception and Physics-Aware Vision-Based Aerial Tracking</h4>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2606.29783" target="_blank" rel="noopener">2606.29783</a> | <strong>Date / 日期</strong>: 2026-06-29</p>
+<p><strong>Authors / 作者</strong>: Yan Miao, Karteek Gandiboyina, Noah Giles, Hideki Okamoto, Bardh Hoxha, Georgios Fainekos, Sayan Mitra</p>
+<p>[EN] This paper presents an integrated system for aerial visual tracking that addresses the critical challenge of generating large-scale annotated datasets without manual labeling. The approach leverages a photorealistic, configurable simulation environment to automatically produce training annotations. An automated pipeline uses neural rendering to isolate objects from short video clips and composite them onto random backgrounds, rapidly generating thousands of annotated images. A detection model trained in simulation is then combined with motion prediction through a physics-aware filtering architecture for robust real-world tracking. The system achieved exceptional precision when deployed on real drones without prior real-world training, and a physical drone successfully tracked targets in real-time flight, surpassing conventional visual tracking approaches.</p>
+<p>[CN] 本文提出了一个用于空中视觉跟踪的集成系统，解决了无需手动标注生成大规模标注数据集的关键挑战。该方法利用逼真可配置的仿真环境自动生成训练标注。自动化流水线使用神经渲染从短视频片段中隔离目标并将其合成到随机背景上，快速生成数千张标注图像。在仿真中训练的检测模型随后通过物理感知滤波架构与运动预测结合，实现鲁棒的真实世界跟踪。该系统在真实无人机上部署时无需预训练即达到高精度，物理无人机在实时飞行中成功跟踪目标，超越了传统视觉跟踪方法。</p>
+<p><strong>Key Methods / 关键方法</strong>: Neural rendering-based auto-labeling pipeline / 基于神经渲染的自动标注流水线; Physics-aware motion filtering / 物理感知运动滤波; Sim-to-real transfer / 仿真到真实的迁移</p>
+<hr>
+<h3>Topic 2: Multi-Object Tracking (MOT) / 多目标跟踪</h3>
+<h4>3. HieDG: A Hierarchical Discrete Geometry-Guided Framework for Multi-Animal Tracking (ECCV 2026)</h4>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2607.00494" target="_blank" rel="noopener">2607.00494</a> | <strong>Date / 日期</strong>: 2026-07-01</p>
+<p><strong>Authors / 作者</strong>: Chenxun Deng, Zhongde Zhang, Ye Yuan, Chengyang Zhang, Yifan Zhang, Bohao Chen, Hongying Yan, Hang Zhou, Hua Han, Xi Chen</p>
+<p>[EN] Tracking multiple animals is essential for wildlife observation but remains challenging due to similar appearances and erratic movements. Current methods struggle with the instability of continuous spatial representations. HieDG introduces a novel two-stage residual codebook that converts spatial cues (position, velocity) into structured, stable discrete tokens. These discrete representations are merged with visual features to enhance identity matching across frames. The model achieved top results on specialized wildlife tracking datasets and demonstrated strong generalization on general multi-object tracking benchmarks. This work has been accepted to ECCV 2026.</p>
+<p>[CN] 多动物跟踪对野生动物观察至关重要，但由于外观相似和运动不规则，仍然具有挑战性。当前方法在连续空间表示的不稳定性方面表现不佳。HieDG引入了新颖的两阶段残差码本，将空间线索（位置、速度）转换为结构化、稳定的离散token。这些离散表示与视觉特征融合以增强跨帧身份匹配。该模型在专业野生动物跟踪数据集上取得了顶级结果，并在通用多目标跟踪基准上展示了强泛化能力。该工作已被ECCV 2026接收。</p>
+<p><strong>Key Methods / 关键方法</strong>: Two-stage residual codebook for spatial tokenization / 两阶段残差码本用于空间离散化; Hierarchical discrete geometry guidance / 层次化离散几何引导</p>
+<hr>
+<h4>4. PS-MOT: Cultivating Instance Awareness from Point Seeds for Multi-Object Tracking</h4>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2606.30476" target="_blank" rel="noopener">2606.30476</a> | <strong>Date / 日期</strong>: 2026-06-29</p>
+<p><strong>Authors / 作者</strong>: Kai Luo, Fei Teng, Mengfei Duan, Wanjun Jia, Xu Wang, Hao Shi, Kunyu Peng, Zhiyong Li, Kailun Yang</p>
+<p>[EN] This paper presents a cost-effective approach to multi-object tracking using only point annotations (center markers) instead of full bounding boxes. The system, called PS-Track, shifts emphasis from physical perimeters to central topology. To address the ambiguity of point-only supervision, the authors introduce three key innovations: (1) Temporal-Feedback Prompting converts basic point markers into stable pseudo-labels using motion predictions and negative spatial hints; (2) Point-Excited Wavelet Attention leverages semantic connections to trigger high-frequency details and predict object boundaries; (3) Uncertainty-Guided Gaussian Learning treats pseudo-labels as probability distributions to dynamically adjust training weights. Evaluations across multiple datasets demonstrate new state-of-the-art results for point-supervised tracking.</p>
+<p>[CN] 本文提出了一种经济高效的多目标跟踪方法，仅使用点标注（中心标记）而非完整边界框。该系统称为PS-Track，将重点从物理边界转向中心拓扑。为解决纯点监督的模糊性问题，作者引入三项关键创新：（1）时序反馈提示使用运动预测和负空间提示将基本点标记转换为稳定的伪标签；（2）点激励小波注意力利用语义连接触发高频细节并预测对象边界；（3）不确定性引导高斯学习将伪标签视为概率分布以动态调整训练权重。在多个数据集上的评估展示了点监督跟踪的新SOTA结果。</p>
+<p><strong>Key Methods / 关键方法</strong>: Temporal-Feedback Prompting / 时序反馈提示; Point-Excited Wavelet Attention / 点激励小波注意力; Uncertainty-Guided Gaussian Learning / 不确定性引导高斯学习</p>
+<hr>
+<h4>5. CylindTrack: Depth-Aware Cylindrical Motion Modeling for Panoramic Multi-Object Tracking</h4>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2606.30097" target="_blank" rel="noopener">2606.30097</a> | <strong>Date / 日期</strong>: 2026-06-29</p>
+<p><strong>Authors / 作者</strong>: Buyin Deng, Kai Luo, Lingxin Huang, Xinqi Liu, Fei Cheng, Hang Zheng, Liming Yin, Kailun Yang</p>
+<p>[EN] Panoramic cameras provide 360° views for autonomous systems but introduce unique challenges for multi-object tracking. The circular distortion of the horizontal axis breaks standard motion models and ruins overlap-based matching at image boundaries. CylindTrack addresses these issues with three depth-aware modules: (1) DTM upgrades single-frame depth estimates into smoothed trajectory states; (2) SSTC boosts observation reliability by merging temporal mixing with geometry-focused attention; (3) TCMM translates lateral motion into a continuous angular space, ensuring smooth predictions across the panoramic field of view. This work represents one of the first dedicated solutions for panoramic multi-object tracking.</p>
+<p>[CN] 全景相机为自主系统提供360°视角，但给多目标跟踪带来独特挑战。水平轴的环形畸变破坏了标准运动模型，并在图像边界处破坏了基于重叠的匹配。CylindTrack通过三个深度感知模块解决这些问题：（1）DTM将单帧深度估计升级为平滑的轨迹状态；（2）SSTC通过融合时序混合与几何聚焦注意力提升观测可靠性；（3）TCMM将横向运动转换为连续角度空间，确保全景视场中平滑的预测。该工作是全景多目标跟踪的首批专用解决方案之一。</p>
+<p><strong>Key Methods / 关键方法</strong>: Depth-aware Trajectory Modeling (DTM) / 深度感知轨迹建模; Spatio-Temporal Channel mixing (SSTC) / 时空通道混合; Toroidal Continuous Motion Mapping (TCMM) / 环形连续运动映射</p>
+<hr>
+<h3>Topic 3: Novel Architectures &amp; State Space Models / 新型架构与状态空间模型</h3>
+<h4>6. SUMO: Segment and Track Any Motion with Nonlinear State Space Models</h4>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2606.29861" target="_blank" rel="noopener">2606.29861</a> | <strong>Date / 日期</strong>: 2026-06-29</p>
+<p><strong>Authors / 作者</strong>: Kexin Tian, Sixu Li, Keshu Wu, Yang Zhou, Zhengzhong Tu</p>
+<p>[EN] SUMO presents a training-free, zero-shot approach to improving object tracking and segmentation of moving objects. Traditional tracking methods rely heavily on visual cues and fail when objects exhibit complex, non-linear real-world movements. SUMO merges non-linear dynamics from robotics with image-based segmentation. The system introduces a non-linear State Space Model (SSM) to capture complex object motions that linear models cannot represent. A Selective Unscented Filter provides precise state estimation, using unified scoring and smooth integration of multiple predictions to determine the most likely object state over time. A frame retention selector evaluates the trustworthiness of stored templates, yielding superior tracking results without any task-specific training.</p>
+<p>[CN] SUMO提出了一种无需训练、零样本的方法来改善运动对象的跟踪和分割。传统跟踪方法严重依赖视觉线索，当对象表现出复杂的非线性真实世界运动时会失败。SUMO将机器人学中的非线性动力学与基于图像的分割相结合。系统引入非线性状态空间模型（SSM）来捕获线性模型无法表示的复杂对象运动。选择性无迹滤波器提供精确的状态估计，使用统一评分和多预测的平滑积分来确定最可能的对象状态。帧保留选择器评估存储模板的可信度，在无需任何任务特定训练的情况下产生优越的跟踪结果。</p>
+<p><strong>Key Methods / 关键方法</strong>: Nonlinear State Space Model / 非线性状态空间模型; Selective Unscented Filter / 选择性无迹滤波器; Frame retention selector / 帧保留选择器</p>
+<hr>
+<h3>Topic 4: Generic Object Tracking &amp; Perceptual Intelligence / 通用目标跟踪与感知智能</h3>
+<h4>7. Rethinking Generic Object Tracking Toward Human-Level Perceptual Intelligence</h4>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2607.01395" target="_blank" rel="noopener">2607.01395</a> | <strong>Date / 日期</strong>: 2026-07-01</p>
+<p><strong>Authors / 作者</strong>: Shih-Fang Chen</p>
+<p>[EN] This paper takes a reflective look at the fundamental goals of generic object tracking, drawing parallels between biological vision systems and artificial tracking algorithms. Biological sight maintains continuous environmental understanding by blending past knowledge with current visual input. Current artificial systems, initialized with a target in the first frame, struggle when objects undergo drastic appearance changes, face competing visual distractions, or belong to previously unseen classes. The author proposes multiple techniques to bridge the gap between artificial and biological vision, focusing on improving target discrimination, adaptive model updating, and spatial reasoning capabilities. This work provides a thought-provoking perspective on the future direction of tracking research toward human-level perceptual intelligence.</p>
+<p>[CN] 本文对通用目标跟踪的基本目标进行了反思性审视，在生物视觉系统和人工跟踪算法之间建立类比。生物视觉通过将过去知识与当前视觉输入融合来维持对环境的连续理解。当前人工系统以首帧目标初始化，当对象经历剧烈外观变化、面临竞争性视觉干扰或属于先前未见类别时会遇到困难。作者提出了多种技术来弥合人工视觉与生物视觉之间的差距，重点改善目标辨别、自适应模型更新和空间推理能力。该工作为跟踪研究迈向人类级别感知智能的未来方向提供了发人深省的视角。</p>
+<p><strong>Key Methods / 关键方法</strong>: Bio-inspired perceptual framework / 生物启发的感知框架; Adaptive target discrimination / 自适应目标辨别; Spatial reasoning for tracking / 跟踪空间推理</p>
+<hr>
+<h2>Research Trends / 研究趋势</h2>
+<h3>Trend 1: State Space Models Enter Tracking / 状态空间模型进入跟踪领域</h3>
+<p>[EN] Both SFDATrack (using Mamba layers) and SUMO (using nonlinear State Space Models) demonstrate that state space models — particularly the Mamba architecture — are becoming a serious alternative to Transformers for visual tracking. SFDATrack uses bidirectional selective scanning for weather-resilient features, while SUMO applies nonlinear SSMs from robotics to capture complex motion dynamics. This signals a broader shift in the tracking community toward sequential modeling approaches that offer better computational efficiency than attention-based Transformers.</p>
+<p>[CN] SFDATrack（使用Mamba层）和SUMO（使用非线性状态空间模型）都表明状态空间模型——特别是Mamba架构——正在成为视觉跟踪中Transformer的重要替代方案。SFDATrack使用双向选择性扫描提取抗天气特征，而SUMO将机器人学中的非线性SSM应用于捕获复杂运动动态。这标志着跟踪社区正更广泛地转向提供比注意力Transformer更好计算效率的序列建模方法。</p>
+<h3>Trend 2: Multi-Object Tracking Diversification / 多目标跟踪的多样化</h3>
+<p>[EN] This week&#x27;s three MOT papers — HieDG (animal tracking), PS-MOT (point-supervised), and CylindTrack (panoramic) — showcase the expanding scope of multi-object tracking research. Rather than competing on standard benchmarks alone, researchers are pushing MOT into specialized domains: wildlife monitoring, annotation-efficient learning, and non-Euclidean camera geometries. The common thread is adapting tracking fundamentals to real-world constraints that go beyond simple appearance matching.</p>
+<p>[CN] 本周三篇MOT论文——HieDG（动物跟踪）、PS-MOT（点监督）和CylindTrack（全景）——展示了多目标跟踪研究范围的不断扩大。研究者不再仅在标准基准上竞争，而是将MOT推向专业领域：野生动物监测、标注高效学习和非欧几里得相机几何。共同主线是将跟踪基础适应于超越简单外观匹配的真实世界约束。</p>
+<h3>Trend 3: Simulation-to-Reality for Tracking / 跟踪的仿真到真实迁移</h3>
+<p>[EN] FalconTrack demonstrates an increasingly important paradigm: using photorealistic simulation (neural rendering) to generate training data, then transferring directly to real-world drone tracking. This sim-to-real approach eliminates the bottleneck of manual annotation for aerial tracking and enables rapid dataset generation. Combined with physics-aware motion filtering, the system achieves robust tracking without any real-world training data — a pattern likely to become more common as neural rendering tools mature.</p>
+<p>[CN] FalconTrack展示了一个日益重要的范式：使用逼真仿真（神经渲染）生成训练数据，然后直接迁移到真实世界无人机跟踪。这种仿真到真实的方法消除了空中跟踪手动标注的瓶颈，实现了快速数据集生成。结合物理感知运动滤波，系统在无需任何真实世界训练数据的情况下实现鲁棒跟踪——随着神经渲染工具成熟，这种模式可能变得更加普遍。</p>
+<h3>Trend 4: Annotation Efficiency / 标注效率提升</h3>
+<p>[EN] PS-MOT&#x27;s point-supervised tracking paradigm represents a growing emphasis on reducing annotation burden in MOT. By using only center-point annotations instead of full bounding boxes, and introducing clever techniques like Temporal-Feedback Prompting and Uncertainty-Guided Gaussian Learning to bridge the gap between point and box supervision, this work opens the door to scaling up MOT datasets with much cheaper labeling. This trend toward weaker supervision signals is increasingly important as the community seeks to scale tracking to larger and more diverse datasets.</p>
+<p>[CN] PS-MOT的点监督跟踪范式代表了MOT中减少标注负担的日益增长的重点。通过仅使用中心点标注而非完整边界框，并引入时序反馈提示和不确定性引导高斯学习等巧妙技术来弥合点和框监督之间的差距，该工作为以更低的标注成本扩展MOT数据集开辟了道路。这种朝向更弱监督信号的趋势日益重要，因为社区寻求将跟踪扩展到更大更多样化的数据集。</p>
+<h3>Trend 5: Bio-Inspired Tracking / 生物启发跟踪</h3>
+<p>[EN] The &quot;Rethinking Generic Object Tracking&quot; paper and SUMO&#x27;s robotics-inspired state space model both reflect a growing trend of looking to biological and physical systems for tracking inspiration. Whether it&#x27;s mimicking how biological vision blends memory with perception, or applying robotics motion models to visual tracking, these approaches suggest that the next breakthroughs may come from cross-disciplinary insights rather than incremental architecture improvements.</p>
+<p>[CN] &quot;重新思考通用目标跟踪&quot;论文和SUMO的机器人学启发状态空间模型都反映了越来越多的从生物和物理系统中寻找跟踪灵感的趋势。无论是模仿生物视觉如何将记忆与感知融合，还是将机器人运动模型应用于视觉跟踪，这些方法表明下一个突破可能来自跨领域的洞察而非渐进式架构改进。</p>
+<hr>
+<h2>Top Recommended / 推荐阅读 Top 5</h2>
+<h3>1. SFDATrack</h3>
+<p>[EN] <strong>Why read:</strong> First work to combine Mamba-style state space models with source-free domain adaptation for tracking under adverse weather. The Dual Interactive Mamba layers and hyperspherical prototype projection are novel architectural contributions that could influence future robust tracking designs. Highly relevant as deployment in real-world conditions becomes increasingly important.</p>
+<p>[CN] <strong>推荐理由：</strong> 首个将Mamba风格状态空间模型与无源域自适应结合用于恶劣天气跟踪的工作。双重交互式Mamba层和超球原型投影是新颖的架构贡献，可能影响未来的鲁棒跟踪设计。随着真实世界条件部署日益重要，该工作高度相关。</p>
+<h3>2. HieDG (ECCV 2026)</h3>
+<p>[EN] <strong>Why read:</strong> Accepted at ECCV 2026, this paper introduces an elegant discrete representation for spatial dynamics in multi-animal tracking. The two-stage residual codebook approach is theoretically interesting and practically effective, achieving top results on both specialized and general MOT benchmarks. A strong example of how discrete representations can improve continuous tracking problems.</p>
+<p>[CN] <strong>推荐理由：</strong> 被ECCV 2026接收，本文引入了优雅的离散表示用于多动物跟踪中的空间动态。两阶段残差码本方法在理论上有趣且实践中有效，在专业和通用MOT基准上均取得顶级结果。是离散表示如何改善连续跟踪问题的优秀范例。</p>
+<h3>3. PS-MOT</h3>
+<p>[EN] <strong>Why read:</strong> The point-supervised tracking paradigm is a practical breakthrough for scaling up MOT annotations. The three proposed techniques (Temporal-Feedback Prompting, Wavelet Attention, Gaussian Learning) are well-motivated and collectively address the challenge of going from points to boxes. This work could significantly reduce the cost of creating MOT training data.</p>
+<p>[CN] <strong>推荐理由：</strong> 点监督跟踪范式是扩展MOT标注的实用突破。三项提出的技术（时序反馈提示、小波注意力、高斯学习）动机充分，共同解决了从点到框的挑战。该工作可能显著降低创建MOT训练数据的成本。</p>
+<h3>4. SUMO</h3>
+<p>[EN] <strong>Why read:</strong> A creative fusion of robotics state space models with visual tracking and segmentation. The training-free, zero-shot design is impressive, and the nonlinear SSM approach offers a fundamentally different way to model object motion compared to attention-based or correlation filter methods. Worth studying for its cross-disciplinary methodology.</p>
+<p>[CN] <strong>推荐理由：</strong> 机器人学状态空间模型与视觉跟踪和分割的创造性融合。无需训练、零样本设计令人印象深刻，非线性SSM方法提供了与基于注意力或相关滤波方法根本不同的对象运动建模方式。其跨领域方法论值得研究。</p>
+<h3>5. CylindTrack</h3>
+<p>[EN] <strong>Why read:</strong> One of the first works to tackle panoramic (360°) multi-object tracking, addressing a real but underserved need in autonomous systems. The cylindrical motion modeling and depth-aware modules are well-designed solutions to the unique challenges of spherical imaging. As panoramic cameras become more common in robotics and autonomous driving, this work fills an important gap.</p>
+<p>[CN] <strong>推荐理由：</strong> 首批解决全景（360°）多目标跟踪的工作之一，满足了自主系统中真实但未被充分服务的需求。柱面运动建模和深度感知模块是针对球形成像独特挑战的良好设计解决方案。随着全景相机在机器人和自动驾驶中变得更加普遍，该工作填补了重要空白。</p>
+<hr>
+<p><em>Report generated automatically by QoderWork. Papers sourced from arXiv API and web searches, covering June 29 – July 6, 2026.</em></p>
+<p><em>本报告由 QoderWork 自动生成，数据来源于 arXiv API 和网络搜索，覆盖2026年6月29日至7月6日。</em></p>
+</div>
+<footer class="footer">
+  数据来源：arXiv API &middot; 翻译：MyMemory &middot; 每日自动更新<br>
+  <a href="/index.html">返回 CV 领域动态速览</a>
+</footer>
+</body>
+</html>

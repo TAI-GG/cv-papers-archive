@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOT Report 2026-06-22 · 目标跟踪报告 2026-06-22</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--primary:#0f766e;--primary-light:#14b8a6;--primary-bg:#f0fdfa;--accent:#0ea5e9;
+        --text:#1e293b;--text-secondary:#64748b;--border:#e2e8f0;--card-bg:#fff;--bg:#f8fafc}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
+       background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);
+          border-bottom:1px solid var(--border)}
+  .header-inner{max-width:1080px;margin:0 auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .logo{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--accent));
+        display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;flex-shrink:0}
+  .header h1{font-size:20px;font-weight:700;background:linear-gradient(135deg,var(--primary),var(--accent));
+             -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .header-sub{font-size:12px;color:var(--text-secondary)}
+  .stats{display:flex;gap:18px;font-size:13px;color:var(--text-secondary)}
+  .stats strong{color:var(--text)}
+  .nav-bar{max-width:1080px;margin:0 auto;padding:10px 24px;display:flex;gap:10px;flex-wrap:wrap;border-top:1px solid var(--border)}
+  .nav-bar a{font-size:13px;font-weight:600;color:var(--text-secondary);text-decoration:none;padding:5px 14px;
+             border-radius:20px;background:#f1f5f9;transition:all .2s}
+  .nav-bar a:hover{color:var(--primary);background:var(--primary-bg)}
+  .nav-bar a.current{color:#fff;background:var(--primary)}
+  .container{max-width:1080px;margin:0 auto;padding:32px 24px}
+  .intro{background:var(--primary-bg);border:1px solid #ccfbf1;border-radius:12px;padding:18px 22px;margin-bottom:26px}
+  .intro p{font-size:14px;color:#134e4a;margin:4px 0}
+  h2{font-size:20px;margin:30px 0 14px;color:var(--primary);border-left:4px solid var(--primary);padding-left:10px}
+  h3{font-size:16px;margin:22px 0 10px;color:var(--text)}
+  h4{font-size:14px;margin:16px 0 8px;color:var(--text-secondary)}
+  table.rpt-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px;background:#fff;
+                  box-shadow:0 1px 3px rgba(0,0,0,.05);border-radius:10px;overflow:hidden}
+  table.rpt-table th,table.rpt-table td{border:1px solid var(--border);padding:9px 11px;text-align:left;vertical-align:top}
+  table.rpt-table th{background:var(--primary);color:#fff;font-weight:600}
+  table.rpt-table tr:nth-child(even){background:#f8fafc}
+  .paper{border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin:14px 0;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .paper h3{margin:0 0 6px}
+  .paper .meta{font-size:12px;color:var(--text-secondary);margin-bottom:8px}
+  .paper .meta a{color:var(--primary-light);text-decoration:none}
+  .summary-en{font-size:14px;color:var(--text);border-left:3px solid var(--accent);padding-left:12px;margin:8px 0}
+  .summary-cn{font-size:14px;color:#334155;border-left:3px solid var(--primary-light);padding-left:12px;margin:8px 0;background:#f0fdfa}
+  .badge{display:inline-block;font-size:11px;font-weight:600;padding:2px 10px;border-radius:20px;
+         background:var(--primary-bg);color:var(--primary);margin-bottom:6px}
+  .footer{text-align:center;padding:36px 24px 50px;color:var(--text-secondary);font-size:13px;border-top:1px solid var(--border);margin-top:40px}
+  .footer a{color:var(--primary-light);text-decoration:none}
+  ul,ol{margin:8px 0 8px 22px}
+  blockquote{border-left:3px solid var(--primary);background:#f0fdfa;padding:8px 14px;margin:10px 0;color:#134e4a}
+  img{max-width:100%}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <div style="display:flex;align-items:center;gap:14px">
+      <div class="logo">&#x1F3A5;</div>
+      <div>
+        <h1>视觉目标跟踪 · 论文专栏</h1>
+        <div class="header-sub">Visual Object Tracking &middot; 中英双语论文档案</div>
+      </div>
+    </div>
+  </div>
+  <nav class="nav-bar"><a href="/index.html">主站·本周</a><a href="/tracking/index.html">目标跟踪</a><a href="/tracking/reports/index.html" class="current">历史报告</a></nav>
+</header>
+<div class="container">
+<div class='intro'><p><strong>Imported report / 导入报告：</strong>2026-06-22</p><p>本页由 TAI-GG/visual-tracking-papers 的历史 markdown 报告转换而来，内容为中英双语原文。</p></div><h1>Weekly Report: Visual Object Tracking Papers / 视觉目标跟踪论文周报</h1>
+<p><strong>Date Range / 日期范围</strong>: 2026-06-01 ~ 2026-06-22  </p>
+<p><strong>Report Date / 报告日期</strong>: 2026-06-22  </p>
+<p><strong>Sources / 来源</strong>: arXiv, Google Scholar, CVPR 2026, ICML 2026, IROS 2026, AVSS 2026, RO-MAN 2026</p>
+<hr>
+<h2>Paper Summary Table / 论文汇总表</h2>
+<table class="rpt-table"><thead><tr><th>#</th><th>Title (EN + CN)</th><th>Authors</th><th>Source</th><th>Category (EN/CN)</th><th>Link</th></tr></thead><tbody><tr><td>1</td><td>FEMOT: Multi-Object Tracking using Frame and Event Cameras / FEMOT：基于帧相机与事件相机的多目标跟踪</td><td>Shiao Wang, Xiao Wang, Chao Wang, et al.</td><td>arXiv 2606.14094</td><td>Multi-Object Tracking / 多目标跟踪</td><td><a href="https://arxiv.org/abs/2606.14094" target="_blank" rel="noopener">Link</a></td></tr><tr><td>2</td><td>SAM-Deep-EIoU: Selective Mask Propagation for Multi-Object Tracking / SAM-Deep-EIoU：面向多目标跟踪的选择性掩膜传播</td><td>Alexander Holmberg</td><td>arXiv 2606.13033</td><td>Multi-Object Tracking / 多目标跟踪</td><td><a href="https://arxiv.org/abs/2606.13033" target="_blank" rel="noopener">Link</a></td></tr><tr><td>3</td><td>HDST-GNN: Heterogeneous Dynamic Spatiotemporal Graph Neural Networks for MOT in UAV Aerial Imagery / HDST-GNN：面向无人机航拍图像多目标跟踪的异构动态时空图神经网络</td><td>Phillip Jiang</td><td>arXiv 2606.05587</td><td>Multi-Object Tracking / 多目标跟踪</td><td><a href="https://arxiv.org/abs/2606.05587" target="_blank" rel="noopener">Link</a></td></tr><tr><td>4</td><td>Seg2Track++: Probabilistic Track Validation and Data Association for MOTS / Seg2Track++：面向多目标跟踪与分割的概率轨迹验证与数据关联</td><td>Diogo Mendonça, Tiago Barros, et al.</td><td>arXiv 2606.03875</td><td>Multi-Object Tracking / 多目标跟踪</td><td><a href="https://arxiv.org/abs/2606.03875" target="_blank" rel="noopener">Link</a></td></tr><tr><td>5</td><td>CANMOT: Class-Aware Noise Modeling for MOT in Autonomous Driving / CANMOT：面向自动驾驶多目标跟踪的类别感知噪声建模</td><td>Timo Osterburg, Stefan Schütte, Torsten Bertram</td><td>arXiv 2606.03590 (IROS 2026)</td><td>3D Tracking / 3D跟踪</td><td><a href="https://arxiv.org/abs/2606.03590" target="_blank" rel="noopener">Link</a></td></tr><tr><td>6</td><td>VLHTrack: Vision-Language Guided Hyperspectral Object Tracking / VLHTrack：视觉-语言引导的高光谱目标跟踪</td><td>Rui Yao, Yuhong Zhang, et al.</td><td>arXiv 2606.09167</td><td>Multimodal Tracking / 多模态跟踪</td><td><a href="https://arxiv.org/abs/2606.09167" target="_blank" rel="noopener">Link</a></td></tr><tr><td>7</td><td>AVTrack: Audio-Visual Tracking in Human-centric Complex Scenes / AVTrack：面向以人为中心的复杂场景音视频跟踪</td><td>Yaoting Wang, Yun Zhou, et al.</td><td>arXiv 2606.02724 (ICML 2026)</td><td>Multimodal Tracking / 多模态跟踪</td><td><a href="https://arxiv.org/abs/2606.02724" target="_blank" rel="noopener">Link</a></td></tr><tr><td>8</td><td>SMAC: Spatial-Modal Joint Modeling for Multimodal Object Tracking / SMAC：面向多模态目标跟踪的空间-模态联合建模</td><td>Meijing Gao, Qitai Sun, et al.</td><td>arXiv 2606.03370</td><td>Multimodal Tracking / 多模态跟踪</td><td><a href="https://arxiv.org/abs/2606.03370" target="_blank" rel="noopener">Link</a></td></tr><tr><td>9</td><td>SEATrack: Simple, Efficient, and Adaptive Multimodal Tracker / SEATrack：简洁高效自适应多模态跟踪器</td><td>Junbin Su, Ziteng Xue, et al.</td><td>arXiv 2604.12502 (CVPR 2026 Oral)</td><td>Multimodal Tracking / 多模态跟踪</td><td><a href="https://arxiv.org/abs/2604.12502" target="_blank" rel="noopener">Link</a></td></tr><tr><td>10</td><td>FADE: Out of Sight, Out of Track — Adversarial Attacks on Propagation-based MOT / FADE：眼不见则不跟踪——对基于传播的多目标跟踪器的对抗攻击</td><td>Halima Bouzidi, Haoyu Liu, et al.</td><td>arXiv 2604.00452 (CVPR 2026)</td><td>Tracking Safety / 跟踪安全</td><td><a href="https://arxiv.org/abs/2604.00452" target="_blank" rel="noopener">Link</a></td></tr><tr><td>11</td><td>MV3DT: Fully Distributed Multi-View 3D Tracking in Real-Time / MV3DT：全分布式实时多视角3D跟踪</td><td>Byron Hernandez, Fangyu Li, et al.</td><td>arXiv 2606.13127</td><td>3D Tracking / 3D跟踪</td><td><a href="https://arxiv.org/abs/2606.13127" target="_blank" rel="noopener">Link</a></td></tr><tr><td>12</td><td>Image-Based Re-ID in Online 3D Multi-Pedestrian Tracking / 在线3D多行人跟踪中基于图像的重识别研究</td><td>Eduardo Borges, Luís Garrote, Urbano J. Nunes</td><td>arXiv 2606.07233 (RO-MAN 2026)</td><td>3D Tracking / 3D跟踪</td><td><a href="https://arxiv.org/abs/2606.07233" target="_blank" rel="noopener">Link</a></td></tr><tr><td>13</td><td>HOSTPG: High-Fidelity 4D Hand-Object Capture via Multi-View Spatiotemporal Tracking / HOSTPG：基于多视角时空跟踪与物理感知高斯的高保真4D手-物体捕获</td><td>Bo Peng, Xu Chen, et al.</td><td>arXiv 2606.15908</td><td>3D Tracking / 3D跟踪</td><td><a href="https://arxiv.org/abs/2606.15908" target="_blank" rel="noopener">Link</a></td></tr><tr><td>14</td><td>PMOF: Passenger Monitoring Using Overhead Fisheye Cameras / PMOF：基于顶部鱼眼相机的乘客监控</td><td>Stella Wermuth, et al.</td><td>arXiv 2606.13910 (AVSS 2026)</td><td>Benchmark &amp; Dataset / 基准与数据集</td><td><a href="https://arxiv.org/abs/2606.13910" target="_blank" rel="noopener">Link</a></td></tr><tr><td>15</td><td>VSTAT: Benchmarking Visual State Tracking in Multimodal Video Understanding / VSTAT：多模态视频理解中的视觉状态跟踪基准</td><td>Sihyun Yu, Nanye Ma, et al.</td><td>arXiv 2606.03920</td><td>Benchmark &amp; Evaluation / 基准与评测</td><td><a href="https://arxiv.org/abs/2606.03920" target="_blank" rel="noopener">Link</a></td></tr><tr><td>16</td><td>DisFlow: Scene Flow from Distance Field for Object Pose &amp; Velocity Tracking / DisFlow：基于距离场的场景流用于目标位姿与速度跟踪</td><td>(See paper)</td><td>arXiv 2606.01824</td><td>3D Tracking / 3D跟踪</td><td><a href="https://arxiv.org/abs/2606.01824" target="_blank" rel="noopener">Link</a></td></tr></tbody></table>
+<hr>
+<h2>Detailed Papers by Topic / 按主题分组的论文详情</h2>
+<h3>Topic 1: Multi-Object Tracking (MOT) / 多目标跟踪</h3>
+<hr>
+<h4>1. FEMOT: Multi-Object Tracking using Frame and Event Cameras / FEMOT：基于帧相机与事件相机的多目标跟踪</h4>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2606.14094" target="_blank" rel="noopener">2606.14094</a> | <strong>Date / 日期</strong>: 2026-06-12  </p>
+<p><strong>Authors / 作者</strong>: Shiao Wang, Xiao Wang, Chao Wang, Yitao Li, Menghao Liu, Bo Jiang, Yaowei Wang, Yonghong Tian, Jin Tang  </p>
+<p><strong>Source / 来源</strong>: arXiv preprint (cs.CV, cs.AI)</p>
+<p><strong>[EN]</strong> Conventional RGB cameras degrade under motion blur, low illumination, and overexposure. Bio-inspired event cameras offer complementary cues with high temporal resolution and dynamic range. This paper proposes FEMOT, a large-scale RGB-event MOT dataset covering diverse real-world scenarios and 14 challenging attributes. A multimodal tracking framework FEMOTR is also proposed, which decouples RGB and event features and fuses them in the frequency domain for robust object localization and identity association. Extensive experiments on FEMOT and DSEC-MOT validate its effectiveness.</p>
+<p><strong>[CN]</strong> 传统RGB相机在运动模糊、低光照和过曝条件下性能下降。受生物启发的事件相机具有高时间分辨率和高动态范围，可提供互补信息。本文提出FEMOT，一个大规模RGB-事件多目标跟踪数据集，涵盖多种真实场景和14种挑战性属性。同时提出多模态跟踪框架FEMOTR，解耦RGB和事件特征并在频域中融合，实现鲁棒的目标定位和身份关联。在FEMOT和DSEC-MOT上的大量实验验证了其有效性。</p>
+<p><strong>Key Contributions / 核心贡献</strong>: Large-scale RGB-event MOT dataset; Frequency-domain multimodal fusion framework</p>
+<hr>
+<h4>2. SAM-Deep-EIoU: Selective Mask Propagation for Multi-Object Tracking / SAM-Deep-EIoU：面向多目标跟踪的选择性掩膜传播</h4>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2606.13033" target="_blank" rel="noopener">2606.13033</a> | <strong>Date / 日期</strong>: 2026-06-11  </p>
+<p><strong>Authors / 作者</strong>: Alexander Holmberg  </p>
+<p><strong>Source / 来源</strong>: arXiv preprint (cs.CV)</p>
+<p><strong>[EN]</strong> MOT has a heavy-tailed difficulty distribution: most frames are easy for lightweight base trackers, while a small fraction are intrinsically hard. VOS models can preserve identity through hard frames but are computationally expensive. This paper proposes selective mask propagation — a training-free algorithm that dispatches from a base tracker to a VOS model (SAM3) only when an assignment-uncertainty signal fires, and only modifies base tracker output when VOS makes a confident contradicting prediction. On SportsMOT, SAM3-Deep-EIoU with global track association achieves state-of-the-art 86.8 HOTA.</p>
+<p><strong>[CN]</strong> 多目标跟踪具有重尾难度分布：大多数帧对轻量级基础跟踪器而言很简单，但少数帧本质上很困难。VOS模型能在困难帧中保持身份一致性，但计算开销大。本文提出选择性掩膜传播——一种无需训练的算法，仅当分配不确定性信号触发时才调度VOS模型（SAM3），且仅当VOS做出与基础跟踪器矛盾的置信预测时才修改输出。在SportsMOT上，SAM3-Deep-EIoU结合全局轨迹关联达到SOTA的86.8 HOTA。</p>
+<p><strong>Key Contributions / 核心贡献</strong>: Training-free selective dispatching between base tracker and VOS model; SOTA on SportsMOT</p>
+<hr>
+<h4>3. HDST-GNN: Heterogeneous Dynamic Spatiotemporal Graph Neural Networks for MOT in UAV Aerial Imagery / HDST-GNN：面向无人机航拍图像多目标跟踪的异构动态时空图神经网络</h4>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2606.05587" target="_blank" rel="noopener">2606.05587</a> | <strong>Date / 日期</strong>: 2026-06-04  </p>
+<p><strong>Authors / 作者</strong>: Phillip Jiang  </p>
+<p><strong>Source / 来源</strong>: arXiv preprint (cs.CV, cs.AI, cs.LG)</p>
+<p><strong>[EN]</strong> MOT from UAV imagery faces unique challenges: altitude variation, small densely-packed objects, and frequent occlusion causing identity switches. HDST-GNN introduces three contributions: (1) Altitude-Adaptive Edge Construction that adjusts graph connectivity radius from camera-altitude proxy; (2) Heterogeneous Node Representation modeling detections, confirmed tracklets, and lost tracklets as distinct node types; (3) Occlusion-Gated Temporal Aggregation that gates attention by occlusion confidence. On VisDrone2019-MOT, HDST-GNN achieves 94.51% MOTA and 97.24% IDF1, reducing identity switches by 81% vs. SORT.</p>
+<p><strong>[CN]</strong> 无人机航拍图像的多目标跟踪面临独特挑战：高度变化、密集小目标和频繁遮挡导致身份切换。HDST-GNN提出三个创新：(1) 高度自适应边构建，根据相机高度代理调整图连接半径；(2) 异构节点表示，将检测、确认轨迹和丢失轨迹建模为不同节点类型；(3) 遮挡门控时域聚合，根据遮挡置信度门控注意力贡献。在VisDrone2019-MOT上，HDST-GNN达到94.51% MOTA和97.24% IDF1，身份切换相比SORT减少81%。</p>
+<p><strong>Key Contributions / 核心贡献</strong>: Heterogeneous graph modeling for UAV MOT; Altitude-adaptive graph construction; 81% identity switch reduction</p>
+<hr>
+<h4>4. Seg2Track++: Probabilistic Track Validation and Data Association for MOTS / Seg2Track++：面向多目标跟踪与分割的概率轨迹验证与数据关联</h4>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2606.03875" target="_blank" rel="noopener">2606.03875</a> | <strong>Date / 日期</strong>: 2026-06-02  </p>
+<p><strong>Authors / 作者</strong>: Diogo Mendonça, Tiago Barros, Cristiano Premebida, Urbano J. Nunes  </p>
+<p><strong>Source / 来源</strong>: arXiv preprint (cs.CV)</p>
+<p><strong>[EN]</strong> Seg2Track++ integrates instance segmentation with SAM2 and a novel track management module for zero-shot MOTS. Tracks are associated using Mask Centroid Distance (MCD) and Confidence-Aware Cost Modulation (CCM), while Probabilistic Track Validation (PTV) employs a Bernoulli filter to validate track existence and suppress ghost tracks. Experiments on KITTI MOTS demonstrate improved identity preservation, reduced false-positive propagation, and robust track management without fine-tuning.</p>
+<p><strong>[CN]</strong> Seg2Track++将SAM2的实例分割与新型轨迹管理模块结合，实现零样本多目标跟踪与分割。使用掩膜质心距离（MCD）和置信感知代价调制（CCM）进行轨迹关联，并通过概率轨迹验证（PTV）采用伯努利滤波器验证轨迹存在性并抑制幽灵轨迹。在KITTI MOTS上的实验表明，无需微调即可改善身份保持、减少假阳性传播并实现鲁棒的轨迹管理。</p>
+<p><strong>Key Contributions / 核心贡献</strong>: Zero-shot MOTS with SAM2; Bernoulli filter-based probabilistic track validation</p>
+<hr>
+<h4>5. CANMOT: Class-Aware Noise Modeling for MOT in Autonomous Driving / CANMOT：面向自动驾驶多目标跟踪的类别感知噪声建模</h4>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2606.03590" target="_blank" rel="noopener">2606.03590</a> | <strong>Date / 日期</strong>: 2026-06-02 | <strong>Venue / 会议</strong>: IROS 2026  </p>
+<p><strong>Authors / 作者</strong>: Timo Osterburg, Stefan Schütte, Torsten Bertram  </p>
+<p><strong>Source / 来源</strong>: arXiv preprint (cs.RO), submitted to IROS 2026</p>
+<p><strong>[EN]</strong> Kalman filter-based MOT typically uses globally shared noise covariances across object classes. CANMOT revisits this assumption and proposes class-aware and object-aligned noise modeling for KF-based 3D MOT. Class-specific diagonal process and measurement covariance matrices are introduced, optionally expressed in the object coordinate frame to preserve longitudinal-lateral anisotropy. Experiments on nuScenes show improved tracking performance and substantially reduced identity switches, while ANEES analysis reveals severe overconfidence in standard baselines.</p>
+<p><strong>[CN]</strong> 基于卡尔曼滤波的多目标跟踪通常跨目标类别共享全局噪声协方差。CANMOT重新审视这一假设，提出面向KF-3D MOT的类别感知和目标对齐噪声建模。引入类别特定的对角过程和测量协方差矩阵，可选择在目标坐标系中表示以保持纵横各向异性。在nuScenes上的实验表明跟踪性能提升且身份切换显著减少，ANEES分析揭示标准基线存在严重的过度自信问题。</p>
+<p><strong>Key Contributions / 核心贡献</strong>: Class-aware noise modeling for 3D MOT; Reveals overconfidence in standard KF baselines; IROS 2026</p>
+<hr>
+<h3>Topic 2: Multimodal Tracking / 多模态跟踪</h3>
+<hr>
+<h4>6. VLHTrack: Vision-Language Guided Hyperspectral Object Tracking / VLHTrack：视觉-语言引导的高光谱目标跟踪</h4>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2606.09167" target="_blank" rel="noopener">2606.09167</a> | <strong>Date / 日期</strong>: 2026-06-08  </p>
+<p><strong>Authors / 作者</strong>: Rui Yao, Yuhong Zhang, Kunyang Sun, Hancheng Zhu, Jiaqi Zhao, Zhiwen Shao, Abdulmotaleb El Saddik  </p>
+<p><strong>Source / 来源</strong>: arXiv preprint (cs.CV)</p>
+<p><strong>[EN]</strong> VLHTrack is a novel hyperspectral vision-language joint tracking framework. It incorporates language priors to address spectral redundancy through a Language-Guided Band Selection Module (LBSM), which leverages LLM descriptions to establish semantic-to-spectral mapping. A Multi-Modal Vision-Language Fusion Module integrates visual and linguistic embeddings. To address target deformation in long-term sequences, a Dynamic Template Update with Mamba (DTUM) module learns inter-frame dependencies via selective state space modeling. Experiments on HOT2023 and HOT2024 demonstrate SOTA performance.</p>
+<p><strong>[CN]</strong> VLHTrack是一个新颖的高光谱视觉-语言联合跟踪框架。通过语言引导波段选择模块（LBSM）引入语言先验来解决光谱冗余问题，利用LLM描述建立语义到光谱的映射。多模态视觉-语言融合模块整合视觉和语言嵌入。为解决长期序列中的目标变形问题，动态模板更新Mamba模块（DTUM）通过选择性状态空间建模学习帧间依赖关系。在HOT2023和HOT2024上的实验展示了SOTA性能。</p>
+<p><strong>Key Contributions / 核心贡献</strong>: First VL-guided hyperspectral tracking framework; LLM-based band selection; Mamba-based dynamic template update</p>
+<hr>
+<h4>7. AVTrack: Audio-Visual Tracking in Human-centric Complex Scenes / AVTrack：面向以人为中心的复杂场景音视频跟踪</h4>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2606.02724" target="_blank" rel="noopener">2606.02724</a> | <strong>Date / 日期</strong>: 2026-06-01 | <strong>Venue / 会议</strong>: ICML 2026  </p>
+<p><strong>Authors / 作者</strong>: Yaoting Wang, Yun Zhou, Zipei Zhang, Henghui Ding  </p>
+<p><strong>Source / 来源</strong>: arXiv preprint (cs.CV, cs.AI), ICML 2026</p>
+<p><strong>[EN]</strong> Audio-visual speaker tracking aims to localize and track active speakers by leveraging auditory and visual cues for fine-grained human-centric scene understanding. Existing datasets are limited to simple or homogeneous scenes with coarse annotations. AVTrack introduces a human-centric audio-visual instance segmentation (AVIS) dataset for dynamic real-world scenarios featuring camera motion, visual occlusions, and position changes. Evaluations reveal substantial performance degradation of existing methods, establishing AVTrack as a challenging benchmark.</p>
+<p><strong>[CN]</strong> 音视频说话人跟踪旨在通过利用听觉和视觉线索来定位和跟踪活跃说话人，实现细粒度的以人为中心的场景理解。现有数据集局限于简单或同质场景，标注粗糙。AVTrack提出了一个面向动态真实场景的以人为中心的音视频实例分割（AVIS）数据集，包含相机运动、视觉遮挡和位置变化等挑战性条件。评估揭示现有方法的显著性能退化，确立AVTrack作为具有挑战性的基准。</p>
+<p><strong>Key Contributions / 核心贡献</strong>: Human-centric AVIS dataset for complex dynamic scenes; ICML 2026; Challenging benchmark</p>
+<hr>
+<h4>8. SMAC: Spatial-Modal Joint Modeling for Multimodal Object Tracking / SMAC：面向多模态目标跟踪的空间-模态联合建模</h4>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2606.03370" target="_blank" rel="noopener">2606.03370</a> | <strong>Date / 日期</strong>: 2026-06-02  </p>
+<p><strong>Authors / 作者</strong>: Meijing Gao, Qitai Sun, Huanyu Sun, Bingxuan Yang, Bingzhou Sun, Xu Chen, Yonghao Yan, Yuxuan Yang  </p>
+<p><strong>Source / 来源</strong>: arXiv preprint (eess.IV)</p>
+<p><strong>[EN]</strong> SMAC proposes a spatial-modal convolution fusion and distillation-prompt-based multimodal MOT framework. A Basic module performs spatial feature extraction and modal interaction via decoupled 3D convolution, while a Mixed module models nonlinear cross-modal correlations through amplitude-phase decomposition. A representation collapse network enables adaptive multimodal fusion with Distillation Prompt Guidance (DPG) and Global Modal Difference Aggregation (GMDA). On the UniRTL dataset, the tracker achieves 63.31 HOTA and 79.21 MOTA on the RNT modality.</p>
+<p><strong>[CN]</strong> SMAC提出了一种空间-模态卷积融合和蒸馏提示的多模态MOT框架。基础模块通过解耦3D卷积执行空间特征提取和模态交互，混合模块通过幅相分解建模非线性跨模态相关性。表示坍塌网络通过蒸馏提示引导（DPG）和全局模态差异聚合（GMDA）实现自适应多模态融合。在UniRTL数据集上，跟踪器在RNT模态上达到63.31 HOTA和79.21 MOTA。</p>
+<p><strong>Key Contributions / 核心贡献</strong>: Spatial-modal fusion backbone with decoupled 3D convolution; Adaptive multimodal fusion via distillation prompts</p>
+<hr>
+<h4>9. SEATrack: Simple, Efficient, and Adaptive Multimodal Tracker / SEATrack：简洁高效自适应多模态跟踪器</h4>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.12502" target="_blank" rel="noopener">2604.12502</a> | <strong>Date / 日期</strong>: 2026-04-14 | <strong>Venue / 会议</strong>: CVPR 2026 (Oral)  </p>
+<p><strong>Authors / 作者</strong>: Junbin Su, Ziteng Xue, Shihui Zhang, Kun Chen, Weiming Hu, Zhipeng Zhang  </p>
+<p><strong>Source / 来源</strong>: arXiv preprint (cs.CV, cs.AI), CVPR 2026 Oral</p>
+<p><strong>[EN]</strong> SEATrack addresses the performance-efficiency dilemma in multimodal tracking PEFT. It proposes AMG-LoRA, which integrates Low-Rank Adaptation with Adaptive Mutual Guidance to dynamically refine and align attention maps across modalities. A Hierarchical Mixture of Experts (HMoE) enables efficient global relation modeling. SEATrack advances notable progress over SOTA methods across RGB-T, RGB-D, and RGB-E tracking tasks while maintaining high efficiency.</p>
+<p><strong>[CN]</strong> SEATrack解决多模态跟踪中参数高效微调的性能-效率困境。提出AMG-LoRA，将低秩适应与自适应互引导相结合，动态细化和对齐跨模态注意力图。层次化混合专家（HMoE）实现高效的全局关系建模。SEATrack在RGB-T、RGB-D和RGB-E跟踪任务上均超越SOTA方法，同时保持高效率。</p>
+<p><strong>Key Contributions / 核心贡献</strong>: AMG-LoRA for cross-modal alignment; HMoE for global fusion; CVPR 2026 Oral; State-of-the-art across RGB-T/D/E</p>
+<hr>
+<h3>Topic 3: Tracking Safety &amp; Robustness / 跟踪安全与鲁棒性</h3>
+<hr>
+<h4>10. FADE: Out of Sight, Out of Track — Adversarial Attacks on Propagation-based MOT / FADE：眼不见则不跟踪——对基于传播的多目标跟踪器的对抗攻击</h4>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2604.00452" target="_blank" rel="noopener">2604.00452</a> | <strong>Date / 日期</strong>: 2026-04-01 | <strong>Venue / 会议</strong>: CVPR 2026  </p>
+<p><strong>Authors / 作者</strong>: Halima Bouzidi, Haoyu Liu, et al.  </p>
+<p><strong>Source / 来源</strong>: arXiv preprint (cs.CV), CVPR 2026</p>
+<p><strong>[EN]</strong> FADE is a novel adversarial attack framework exploiting architectural vulnerabilities of Tracking-by-Query-Propagation (TBP) methods. It employs two strategies: (i) Temporal Query Flooding generates spurious temporally consistent track queries to exhaust the tracker&#x27;s query budget; (ii) Temporal Memory Corruption attacks the query updater&#x27;s memory via state de-correlation and feature identity erasure. A differentiable pipeline optimizes attacks for physical-world realizability. Experiments on MOT17 and MOT20 show FADE causes significant identity switches and track terminations.</p>
+<p><strong>[CN]</strong> FADE是一个新型对抗攻击框架，利用基于查询传播跟踪（TBP）方法的架构漏洞。采用两种策略：(i) 时域查询洪泛——生成虚假的时域一致轨迹查询以耗尽跟踪器的查询预算；(ii) 时域记忆破坏——通过状态去相关和特征身份擦除攻击查询更新器的记忆。可微流水线优化攻击以实现物理世界可实现性。在MOT17和MOT20上的实验表明FADE导致显著的身份切换和轨迹终止。</p>
+<p><strong>Key Contributions / 核心贡献</strong>: First systematic adversarial attack on TBP trackers; Physical-world realizable attacks; CVPR 2026</p>
+<hr>
+<h3>Topic 4: 3D Tracking &amp; Reconstruction / 3D跟踪与重建</h3>
+<hr>
+<h4>11. MV3DT: Fully Distributed Multi-View 3D Tracking in Real-Time / MV3DT：全分布式实时多视角3D跟踪</h4>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2606.13127" target="_blank" rel="noopener">2606.13127</a> | <strong>Date / 日期</strong>: 2026-06-11  </p>
+<p><strong>Authors / 作者</strong>: Byron Hernandez, Fangyu Li, Aotian Wu, Paul J. Shin, Kaustubh Purandare, Henry Medeiros  </p>
+<p><strong>Source / 来源</strong>: arXiv preprint (cs.CV)</p>
+<p><strong>[EN]</strong> MV3DT is a fully distributed framework for real-time multi-view 3D tracking that achieves accurate identity propagation and occlusion recovery through peer-to-peer coordination, eliminating central aggregation. Each camera node executes a lightweight modular pipeline with monocular 3D perception, distributed multi-view association, and collaborative fusion via lightweight messaging. On WILDTRACK, MV3DT achieves 96.5% IDF1, 93.1% MOTA. It sustains 30 FPS on 100 cameras with &lt;10ms inter-camera latency and only 2.2% communication overhead in a zero-shot regime.</p>
+<p><strong>[CN]</strong> MV3DT是一个全分布式实时多视角3D跟踪框架，通过对等协调实现精确的身份传播和遮挡恢复，消除中心化聚合。每个相机节点执行轻量级模块化流水线，包含单目3D感知、分布式多视角关联和通过轻量消息传递的协作融合。在WILDTRACK上，MV3DT达到96.5% IDF1、93.1% MOTA。在零样本条件下支持100个相机30 FPS，相机间延迟&lt;10ms，通信开销仅2.2%。</p>
+<p><strong>Key Contributions / 核心贡献</strong>: Fully distributed multi-view 3D tracking; Zero-shot deployment; 30 FPS on 100 cameras</p>
+<hr>
+<h4>12. Image-Based Re-ID in Online 3D Multi-Pedestrian Tracking / 在线3D多行人跟踪中基于图像的重识别研究</h4>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2606.07233" target="_blank" rel="noopener">2606.07233</a> | <strong>Date / 日期</strong>: 2026-06-05 | <strong>Venue / 会议</strong>: RO-MAN 2026  </p>
+<p><strong>Authors / 作者</strong>: Eduardo Borges, Luís Garrote, Urbano J. Nunes  </p>
+<p><strong>Source / 来源</strong>: arXiv preprint (cs.CV, cs.LG, cs.RO), RO-MAN 2026</p>
+<p><strong>[EN]</strong> This work systematically studies image-based Re-ID in online 3D MOT using a lightweight projection-based framework to decouple geometric and appearance modeling. A comprehensive analysis of CNN and Vision Transformer architectures is conducted with various multi-modal data association strategies. On KITTI, a cascaded matching strategy successfully recovers occluded tracks without compromising precision, while naive linear fusion degrades due to visual noise. Lightweight architectures offer optimal trade-off between low latency and discriminative power.</p>
+<p><strong>[CN]</strong> 本工作系统研究在线3D MOT中基于图像的重识别，使用轻量级基于投影的框架解耦几何和外观建模。对CNN和Vision Transformer架构进行全面分析，评估多种多模态数据关联策略。在KITTI上，级联匹配策略成功恢复遮挡轨迹而不损害精度，而朴素线性融合因视觉噪声而性能退化。轻量级架构在低延迟和判别能力之间提供了最优折衷。</p>
+<p><strong>Key Contributions / 核心贡献</strong>: Systematic study of Re-ID for 3D MOT; Cascaded matching for occlusion recovery; RO-MAN 2026</p>
+<hr>
+<h4>13. HOSTPG: High-Fidelity 4D Hand-Object Capture via Multi-View Spatiotemporal Tracking / HOSTPG：基于多视角时空跟踪与物理感知高斯的高保真4D手-物体捕获</h4>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2606.15908" target="_blank" rel="noopener">2606.15908</a> | <strong>Date / 日期</strong>: 2026-06-14  </p>
+<p><strong>Authors / 作者</strong>: Bo Peng, Xu Chen, Yi Gu, Hidenobu Matsuki, Mingsong Dou, Jingjing Shen, Deying Kong, Juyong Zhang, Zhengyang Shen  </p>
+<p><strong>Source / 来源</strong>: arXiv preprint (cs.CV)</p>
+<p><strong>[EN]</strong> HOSTPG proposes a novel system for robust 4D hand-object interaction reconstruction from multi-view videos without templates or markers. It consists of: (1) a multi-view feed-forward transformer aggregating cross-view geometry and temporal cues for reliable pose initialization; (2) a physics-aware Gaussian-based optimization integrating tetrahedral constraints, collision refinement, and appearance decomposition for physically plausible reconstruction. Validated on public benchmarks and internal datasets, achieving artifact-free 4D asset generation.</p>
+<p><strong>[CN]</strong> HOSTPG提出一个从多视角视频中鲁棒重建4D手-物体交互的新系统，无需模板或标记。系统包含：(1) 多视角前馈Transformer，聚合跨视角几何和时域线索进行可靠的位姿初始化；(2) 物理感知高斯优化，整合四面体约束、碰撞细化和外观分解，实现物理合理的重建。在公开基准和内部数据集上验证，实现无伪影的4D资产生成。</p>
+<p><strong>Key Contributions / 核心贡献</strong>: Template/marker-free 4D HOI reconstruction; Physics-aware Gaussian optimization; Multi-view transformer initialization</p>
+<hr>
+<h4>14. DisFlow: Scene Flow from Distance Field for Object Pose &amp; Velocity Tracking / DisFlow：基于距离场的场景流用于目标位姿与速度跟踪</h4>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2606.01824" target="_blank" rel="noopener">2606.01824</a> | <strong>Date / 日期</strong>: 2026-06-01  </p>
+<p><strong>Authors / 作者</strong>: (See paper)  </p>
+<p><strong>Source / 来源</strong>: arXiv preprint (cs.CV)</p>
+<p><strong>[EN]</strong> DisFlow is a framework for online scene flow estimation from distance fields, enabling 6DoF dynamic object pose estimation, motion tracking, and surface reconstruction. The scene is represented by Gaussian Process Implicit Surfaces (GPIS) with surface normals as derivative constraints. Scene flow computed from the distance field describes how surface points are transported over time. Pose and motion are estimated via closed-form optimization in the object frame, where the object remains geometrically consistent. The tight coupling in space and time yields dense geometry and accurate motion.</p>
+<p><strong>[CN]</strong> DisFlow是一个基于距离场的在线场景流估计框架，实现6DoF动态目标位姿估计、运动跟踪和表面重建。场景由高斯过程隐式曲面（GPIS）表示，表面法线作为导数约束。从距离场计算的场景流描述表面点如何随时间传输。位姿和运动通过在目标坐标系中的闭式优化估计，目标保持几何一致性。空间和时间的紧耦合产生密集几何和精确运动。</p>
+<p><strong>Key Contributions / 核心贡献</strong>: Distance-field-based scene flow; 6DoF pose tracking in object frame; GPIS representation</p>
+<hr>
+<h3>Topic 5: Benchmarks &amp; Datasets / 基准与数据集</h3>
+<hr>
+<h4>15. PMOF: Passenger Monitoring Using Overhead Fisheye Cameras / PMOF：基于顶部鱼眼相机的乘客监控</h4>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2606.13910" target="_blank" rel="noopener">2606.13910</a> | <strong>Date / 日期</strong>: 2026-06-11 | <strong>Venue / 会议</strong>: AVSS 2026  </p>
+<p><strong>Authors / 作者</strong>: Stella Katharina Wermuth, Qazi Arbab Ahmed, Klaus Neumann, Thorsten Jungeblut  </p>
+<p><strong>Source / 来源</strong>: arXiv preprint (cs.CV), AVSS 2026</p>
+<p><strong>[EN]</strong> PMOF is the first public dataset of top-view fisheye imagery captured inside a moving vehicle, comprising 19K+ annotated frames. It provides rotated bounding boxes, tracking identifiers, and action labels for object detection, tracking, and action recognition. YOLO26m-obb models fine-tuned with rotation-aware augmentation achieve 94.8% AP50 on PMOF and 96.5% AP50 on unseen datasets. Results highlight the domain gap between static and moving environments.</p>
+<p><strong>[CN]</strong> PMOF是首个在移动车辆内部捕获的顶视鱼眼图像公开数据集，包含19K+标注帧。提供旋转边界框、跟踪标识和动作标签，支持目标检测、跟踪和动作识别。使用旋转感知增强微调的YOLO26m-obb模型在PMOF上达到94.8% AP50，在未见数据集上达到96.5% AP50。结果凸显了静态和移动环境之间的域差距。</p>
+<p><strong>Key Contributions / 核心贡献</strong>: First moving-vehicle overhead fisheye dataset; Tracking + detection + action recognition; AVSS 2026</p>
+<hr>
+<h4>16. VSTAT: Benchmarking Visual State Tracking in Multimodal Video Understanding / VSTAT：多模态视频理解中的视觉状态跟踪基准</h4>
+<p><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2606.03920" target="_blank" rel="noopener">2606.03920</a> | <strong>Date / 日期</strong>: 2026-06-02  </p>
+<p><strong>Authors / 作者</strong>: Sihyun Yu, Nanye Ma, Pinzhi Huang, Hyunseok Lee, Shusheng Yang, et al.  </p>
+<p><strong>Source / 来源</strong>: arXiv preprint (cs.CV)</p>
+<p><strong>[EN]</strong> VSTAT is a video-based benchmark diagnosing visual state tracking in MLLMs, consisting of 834 clips paired with 1,500 questions requiring continuous perception across the entire video stream. Despite strong performance on existing benchmarks, SOTA MLLMs perform far below humans. Analysis reveals MLLMs reason and track correctly in text but fail at visually perceiving the events they need to track. Recent agentic approaches do not resolve these failures.</p>
+<p><strong>[CN]</strong> VSTAT是一个诊断多模态大语言模型视觉状态跟踪能力的视频基准，包含834个片段和1,500个问题，需要在整个视频流中进行持续感知。尽管在现有基准上表现强劲，SOTA MLLM的性能远低于人类。分析揭示MLLM在文本中能正确推理和跟踪，但在视觉感知所需跟踪的事件时失败。近期的智能体方法也未能解决这些失败。</p>
+<p><strong>Key Contributions / 核心贡献</strong>: First benchmark for visual state tracking in MLLMs; Reveals perception-reasoning gap; 834 clips + 1,500 questions</p>
+<hr>
+<h2>Research Trends Summary / 研究趋势总结</h2>
+<h3>Trend 1: Cross-Modal Fusion Dominates / 跨模态融合成为主流方向</h3>
+<p><strong>[EN]</strong> A prominent trend this period is the integration of multiple sensing modalities for tracking. Papers like FEMOT (RGB-event), VLHTrack (vision-language-hyperspectral), AVTrack (audio-visual), and SMAC (infrared-visible) demonstrate that single-modality tracking is increasingly insufficient for complex real-world scenarios. Notably, VLHTrack pioneers the use of large language models for guiding hyperspectral band selection, marking a new direction for language-conditioned tracking.</p>
+<p><strong>[CN]</strong> 本周期的一个显著趋势是多种传感模态的融合用于跟踪。FEMOT（RGB-事件）、VLHTrack（视觉-语言-高光谱）、AVTrack（音频-视觉）和SMAC（红外-可见光）等论文表明，单模态跟踪在复杂真实场景中日益不足。值得注意的是，VLHTrack首次利用大语言模型引导高光谱波段选择，标志着语言条件跟踪的新方向。</p>
+<h3>Trend 2: Foundation Models Meet Tracking / 基础模型与跟踪的结合</h3>
+<p><strong>[EN]</strong> Foundation models are increasingly penetrating the tracking community. SAM-Deep-EIoU leverages SAM3 for identity recovery in hard MOT frames. Seg2Track++ uses SAM2 for zero-shot MOTS. VSTAT evaluates MLLMs&#x27; visual state tracking capabilities, revealing a fundamental perception-reasoning gap. These works show both the promise and limitations of adapting large-scale pretrained models for tracking tasks.</p>
+<p><strong>[CN]</strong> 基础模型正日益渗透到跟踪领域。SAM-Deep-EIoU利用SAM3在困难的MOT帧中恢复身份。Seg2Track++使用SAM2实现零样本MOTS。VSTAT评估MLLM的视觉状态跟踪能力，揭示了根本性的感知-推理差距。这些工作展示了将大规模预训练模型适配到跟踪任务的前景和局限。</p>
+<h3>Trend 3: Graph Neural Networks &amp; Structured Modeling for MOT / 图神经网络与结构化建模用于多目标跟踪</h3>
+<p><strong>[EN]</strong> Graph-based approaches continue to advance for MOT, with HDST-GNN introducing heterogeneous node types and altitude-adaptive edge construction specifically designed for UAV scenarios. CANMOT revisits Kalman filter noise modeling with class-aware covariance matrices. These works demonstrate that structured, domain-aware modeling remains highly competitive for tracking in specialized settings like aerial surveillance and autonomous driving.</p>
+<p><strong>[CN]</strong> 基于图的方法在多目标跟踪中持续进步，HDST-GNN引入异构节点类型和专为无人机场景设计的高度自适应边构建。CANMOT用类别感知协方差矩阵重新审视卡尔曼滤波噪声建模。这些工作表明，在航拍监控和自动驾驶等特定场景中，结构化的领域感知建模仍然具有很强的竞争力。</p>
+<h3>Trend 4: Distributed &amp; Real-Time Systems / 分布式与实时系统</h3>
+<p><strong>[EN]</strong> MV3DT achieves real-time fully distributed multi-view 3D tracking at scale (100 cameras, 30 FPS, &lt;10ms latency), marking an important step toward practical large-scale deployment. Similarly, CANMOT and the Re-ID study emphasize computational efficiency for real-time autonomous driving. The push toward distributed architectures and lightweight models reflects growing attention to deployment constraints.</p>
+<p><strong>[CN]</strong> MV3DT实现了大规模（100个相机、30 FPS、&lt;10ms延迟）的实时全分布式多视角3D跟踪，标志着向实际大规模部署迈出了重要一步。同样，CANMOT和Re-ID研究强调实时自动驾驶的计算效率。向分布式架构和轻量级模型的推进反映了对部署约束的日益关注。</p>
+<h3>Trend 5: Adversarial Robustness &amp; Safety / 对抗鲁棒性与安全性</h3>
+<p><strong>[EN]</strong> FADE (CVPR 2026) is the first systematic adversarial attack targeting propagation-based MOT trackers, exposing critical vulnerabilities in query-based temporal modeling. This work is significant as it raises awareness about the security of tracking systems in safety-critical applications like autonomous driving and surveillance, potentially spurring a new line of defense research.</p>
+<p><strong>[CN]</strong> FADE（CVPR 2026）是首个系统性针对基于传播的MOT跟踪器的对抗攻击，暴露了基于查询的时域建模中的关键漏洞。该工作具有重要意义，提高了对自动驾驶和监控等安全关键应用中跟踪系统安全性的认识，可能催生新的防御研究。</p>
+<h3>Trend 6: New Datasets &amp; Benchmarks / 新数据集与基准</h3>
+<p><strong>[EN]</strong> Multiple high-quality datasets were introduced: FEMOT (RGB-event MOT), AVTrack (human-centric AVIS, ICML 2026), PMOF (overhead fisheye, AVSS 2026), and VSTAT (MLLM visual state tracking). These datasets address under-explored scenarios and push the community toward more realistic and challenging evaluation settings.</p>
+<p><strong>[CN]</strong> 引入了多个高质量数据集：FEMOT（RGB-事件MOT）、AVTrack（以人为中心的AVIS，ICML 2026）、PMOF（顶部鱼眼，AVSS 2026）和VSTAT（MLLM视觉状态跟踪）。这些数据集针对未被充分探索的场景，推动社区向更真实和更具挑战性的评估设置发展。</p>
+<hr>
+<h2>Top Recommended Papers / 推荐重点阅读论文 Top 5</h2>
+<h3>1. FEMOT: Multi-Object Tracking using Frame and Event Cameras</h3>
+<p><strong>[EN]</strong> Recommended for its pioneering contribution to RGB-event multi-object tracking. The large-scale dataset fills a critical gap and the frequency-domain fusion framework offers a fresh perspective on cross-modal tracking. The comprehensive benchmark with 10+ trackers establishes a solid foundation for future research.</p>
+<p><strong>[CN]</strong> 推荐原因：在RGB-事件多目标跟踪领域具有开创性贡献。大规模数据集填补了关键空白，频域融合框架为跨模态跟踪提供了全新视角。10+跟踪器的综合基准为未来研究奠定了坚实基础。</p>
+<h3>2. SAM-Deep-EIoU: Selective Mask Propagation for Multi-Object Tracking</h3>
+<p><strong>[EN]</strong> Recommended for its elegant and practical approach of combining VOS models with MOT. The training-free selective dispatching mechanism is highly creative and achieves SOTA on SportsMOT with 86.8 HOTA. The black-box design makes it easily adaptable to future VOS improvements.</p>
+<p><strong>[CN]</strong> 推荐原因：将VOS模型与MOT结合的方法优雅且实用。无需训练的选择性调度机制极具创意，在SportsMOT上以86.8 HOTA达到SOTA。黑盒设计使其可轻松适配未来的VOS改进。</p>
+<h3>3. SEATrack: Simple, Efficient, and Adaptive Multimodal Tracker (CVPR 2026 Oral)</h3>
+<p><strong>[EN]</strong> Recommended as a CVPR 2026 Oral paper that sets new standards for efficiency in multimodal tracking. The AMG-LoRA addressing cross-modal attention alignment and HMoE for global fusion represent significant methodological advances. Its strong performance across RGB-T, RGB-D, and RGB-E makes it a versatile baseline.</p>
+<p><strong>[CN]</strong> 推荐原因：作为CVPR 2026 Oral论文，为多模态跟踪的效率设立了新标准。AMG-LoRA解决跨模态注意力对齐问题和HMoE实现全局融合代表了重要的方法论进步。在RGB-T、RGB-D和RGB-E上的强劲表现使其成为通用基线。</p>
+<h3>4. AVTrack: Audio-Visual Tracking in Human-centric Complex Scenes (ICML 2026)</h3>
+<p><strong>[EN]</strong> Recommended as an ICML 2026 paper that introduces the first human-centric audio-visual instance segmentation dataset for complex dynamic scenes. The diverse challenging conditions (camera motion, occlusion, position changes) make it a valuable benchmark for advancing robust multimodal tracking in real-world settings.</p>
+<p><strong>[CN]</strong> 推荐原因：作为ICML 2026论文，首次提出面向复杂动态场景的以人为中心的音视频实例分割数据集。多样化的挑战性条件（相机运动、遮挡、位置变化）使其成为推进真实场景鲁棒多模态跟踪的宝贵基准。</p>
+<h3>5. VSTAT: Benchmarking Visual State Tracking in Multimodal Video Understanding</h3>
+<p><strong>[EN]</strong> Recommended for revealing a fundamental limitation of current MLLMs: they can reason and track entities correctly in text but fail at visually perceiving the tracked events. This finding has broad implications for the tracking and video understanding communities, highlighting an important direction for future research.</p>
+<p><strong>[CN]</strong> 推荐原因：揭示了当前MLLM的一个根本局限：它们能在文本中正确推理和跟踪实体，但在视觉感知需要跟踪的事件时失败。这一发现对跟踪和视频理解领域具有广泛影响，指出了未来研究的重要方向。</p>
+<hr>
+<p><em>Report generated automatically. Papers sourced from arXiv API and web searches, covering June 1-22, 2026. Some papers accepted at major venues (CVPR 2026, ICML 2026, IROS 2026, AVSS 2026, RO-MAN 2026) published earlier are also included for completeness.</em></p>
+<p><em>本报告自动生成。论文来源于arXiv API和网络搜索，覆盖2026年6月1日至22日。部分早期发表但已被主要会议（CVPR 2026、ICML 2026、IROS 2026、AVSS 2026、RO-MAN 2026）录用的论文也被收录以保证完整性。</em></p>
+</div>
+<footer class="footer">
+  数据来源：arXiv API &middot; 翻译：MyMemory &middot; 每日自动更新<br>
+  <a href="/index.html">返回 CV 领域动态速览</a>
+</footer>
+</body>
+</html>
