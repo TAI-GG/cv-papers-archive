@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOT Daily Digest · 目标跟踪每日速览</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--primary:#0f766e;--primary-light:#14b8a6;--primary-bg:#f0fdfa;--accent:#0ea5e9;
+        --text:#1e293b;--text-secondary:#64748b;--border:#e2e8f0;--card-bg:#fff;--bg:#f8fafc}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
+       background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);
+          border-bottom:1px solid var(--border)}
+  .header-inner{max-width:1080px;margin:0 auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .logo{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--accent));
+        display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;flex-shrink:0}
+  .header h1{font-size:20px;font-weight:700;background:linear-gradient(135deg,var(--primary),var(--accent));
+             -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .header-sub{font-size:12px;color:var(--text-secondary)}
+  .stats{display:flex;gap:18px;font-size:13px;color:var(--text-secondary)}
+  .stats strong{color:var(--text)}
+  .nav-bar{max-width:1080px;margin:0 auto;padding:10px 24px;display:flex;gap:10px;flex-wrap:wrap;border-top:1px solid var(--border)}
+  .nav-bar a{font-size:13px;font-weight:600;color:var(--text-secondary);text-decoration:none;padding:5px 14px;
+             border-radius:20px;background:#f1f5f9;transition:all .2s}
+  .nav-bar a:hover{color:var(--primary);background:var(--primary-bg)}
+  .nav-bar a.current{color:#fff;background:var(--primary)}
+  .container{max-width:1080px;margin:0 auto;padding:32px 24px}
+  .intro{background:var(--primary-bg);border:1px solid #ccfbf1;border-radius:12px;padding:18px 22px;margin-bottom:26px}
+  .intro p{font-size:14px;color:#134e4a;margin:4px 0}
+  h2{font-size:20px;margin:30px 0 14px;color:var(--primary);border-left:4px solid var(--primary);padding-left:10px}
+  h3{font-size:16px;margin:22px 0 10px;color:var(--text)}
+  h4{font-size:14px;margin:16px 0 8px;color:var(--text-secondary)}
+  table.rpt-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px;background:#fff;
+                  box-shadow:0 1px 3px rgba(0,0,0,.05);border-radius:10px;overflow:hidden}
+  table.rpt-table th,table.rpt-table td{border:1px solid var(--border);padding:9px 11px;text-align:left;vertical-align:top}
+  table.rpt-table th{background:var(--primary);color:#fff;font-weight:600}
+  table.rpt-table tr:nth-child(even){background:#f8fafc}
+  .paper{border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin:14px 0;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .paper h3{margin:0 0 6px}
+  .paper .meta{font-size:12px;color:var(--text-secondary);margin-bottom:8px}
+  .paper .meta a{color:var(--primary-light);text-decoration:none}
+  .summary-en{font-size:14px;color:var(--text);border-left:3px solid var(--accent);padding-left:12px;margin:8px 0}
+  .summary-cn{font-size:14px;color:#334155;border-left:3px solid var(--primary-light);padding-left:12px;margin:8px 0;background:#f0fdfa}
+  .badge{display:inline-block;font-size:11px;font-weight:600;padding:2px 10px;border-radius:20px;
+         background:var(--primary-bg);color:var(--primary);margin-bottom:6px}
+  .footer{text-align:center;padding:36px 24px 50px;color:var(--text-secondary);font-size:13px;border-top:1px solid var(--border);margin-top:40px}
+  .footer a{color:var(--primary-light);text-decoration:none}
+  ul,ol{margin:8px 0 8px 22px}
+  blockquote{border-left:3px solid var(--primary);background:#f0fdfa;padding:8px 14px;margin:10px 0;color:#134e4a}
+  img{max-width:100%}
+  /* historical report timeline — main-site (CV) form */
+  .cover{text-align:center;margin:18px 0}
+  .cover img{max-width:420px;border-radius:12px;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+  .theme-img{text-align:center;margin:10px 0 16px}
+  .theme-img img{max-width:100%;border-radius:10px}
+  .tl{position:relative;padding-left:42px;margin-top:8px}
+  .tl::before{content:'';position:absolute;left:15px;top:0;bottom:0;width:2px;background:#c7d2fe;border-radius:2px}
+  .tl-group{position:relative;margin-bottom:28px}
+  .tl-dot{position:absolute;left:-33px;top:4px;width:14px;height:14px;border-radius:50%;
+          background:#3b82f6;border:3px solid #fff;box-shadow:0 0 0 2px #3b82f6;z-index:2}
+  .tl-label{font-size:15px;font-weight:700;color:#1e40af;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .tl-label .mini-dot{width:8px;height:8px;border-radius:50%;background:#3b82f6}
+  .rcard{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:18px 22px;margin-bottom:14px;
+         box-shadow:0 1px 3px rgba(0,0,0,.06);opacity:0;transform:translateY(20px);
+         animation:fadeInUp .5s ease forwards;transition:all .3s ease}
+  .rcard:hover{box-shadow:0 10px 25px -5px rgba(0,0,0,.08);border-color:#3b82f6;transform:translateY(-2px)}
+  @keyframes fadeInUp{to{opacity:1;transform:translateY(0)}}
+  .rcard-title{font-size:16px;font-weight:600;color:#1e293b;line-height:1.5;margin-bottom:4px}
+  .rcard-title a{color:inherit;text-decoration:none}
+  .rcard-title a:hover{color:#3b82f6}
+  .rcard-cn{font-size:14px;color:#475569;margin-bottom:8px}
+  .rcard-meta{display:flex;flex-wrap:wrap;gap:8px;font-size:12px;color:#64748b;margin-bottom:8px}
+  .rcard-badge{display:inline-flex;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:600;
+               background:#eff6ff;color:#1e40af;max-width:340px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .rcard-sum{font-size:14px;color:#475569;line-height:1.7;margin-top:6px;padding-left:12px;border-left:3px solid #c7d2fe}
+  .rcard-sum.cn{border-left-color:#3b82f6;background:#f0fdfa}
+  .rcard-contrib{font-size:13px;color:#475569;margin:8px 0 0 18px}
+  .rcard-contrib li{margin:2px 0}
+  /* reports archive: content inlined, grouped by date */
+  .rpt-section{margin:8px 0}
+  .rpt-section-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;
+                    border-bottom:2px solid var(--primary);padding-bottom:6px;margin:30px 0 16px}
+  .rpt-section-head h2{margin:0;border:0;padding:0;color:var(--primary);font-size:19px}
+  .rpt-full{font-size:13px;font-weight:600;color:#fff;background:var(--primary);text-decoration:none;
+            padding:4px 14px;border-radius:20px;transition:all .2s;white-space:nowrap}
+  .rpt-full:hover{background:var(--accent)}
+  .rpt-sep{border:0;border-top:1px dashed var(--border);margin:34px 0}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <div style="display:flex;align-items:center;gap:14px">
+      <div class="logo">&#x1F3A5;</div>
+      <div>
+        <h1>视觉目标跟踪 · 论文专栏</h1>
+        <div class="header-sub">Visual Object Tracking &middot; 中英双语论文档案</div>
+      </div>
+    </div>
+  </div>
+  <nav class="nav-bar"><a href="../../index.html">主站·本周</a><a href="../index.html" class="current">目标跟踪</a><a href="../reports/index.html">历史报告</a></nav>
+</header>
+<div class="container">
+<div class='intro'><p><strong>Daily Digest / 每日速览：</strong>2026-07-23</p><p>当日新增视觉目标跟踪相关论文（来源：arXiv）。</p></div><div class='paper'><span class='badge'>Multimodal Tracking / 多模态跟踪</span><h3>DRGBT-1K: A Large-scale High-quality Benchmark for Dynamic RGBT Tracking</h3><div class='meta'>DRGBT-1K：动态 RGBT 跟踪的大规模高质量基准<br><a href='https://arxiv.org/abs/2607.19772' target='_blank' rel='noopener'>2607.19772</a> &middot; 2026-07-22 &middot; Zhaodong Ding, Chenglong Li, Zeyu Ding, Futian Wang, Jin Tang</div><div class='summary-cn'><strong>[中文]</strong> 动态 RGBT (DRGBT) 跟踪旨在当可用的传感方式和观察平台随时间变化时持续定位目标。与具有固定RGBT输入和固定观察平台的传统RGBT跟踪相比，DRGBT跟踪更符合现实世界的协作感知系统，其中目标可以通过异构传感器从不同的角度观察。然而，现有的基准仍然不足以系统地评估真实动态模态变化和跨平台转换下跟踪器的鲁棒性。为了解决这个限制，我们做出了以下贡献。 1）我们构建了DRGBT-1K，一个用于DRGBT跟踪的大规模高质量基准。它包含完全在现实世界场景中捕获的 1,045 个序列以及使用无人机和手持式 RGBT 设备收集的 795K RGBT 帧对，涵盖不同的现实世界场景、明显的视点变化、模态变化和目标外观中断</div></div><div class='paper'><span class='badge'>Multi-Object Tracking / 多目标跟踪</span><h3>Cross-Modal UAV Object Tracking: State-Aware Representation Learning and A Unified Benchmark</h3><div class='meta'>跨模式无人机目标跟踪：状态感知表示学习和统一基准<br><a href='https://arxiv.org/abs/2607.18768' target='_blank' rel='noopener'>2607.18768</a> &middot; 2026-07-21 &middot; Yun Xiao, Zhihong Hong, Jiandong Jin, Chenglong Li, Jin Tang, Amir Hussain</div><div class='summary-cn'><strong>[中文]</strong> 无人机（UAV）目标跟踪已成为一个具有广泛实际应用的热门研究领域。现代无人机越来越多地配备可见光和热红外传感器。然而，由于通信带宽、计算资源和功耗的限制，当前的系统通常激活一种模态并在模态之间切换以在复杂场景中保持鲁棒的跟踪。这种模态切换不可避免地会导致显着的外观变化和突然的空间转移，对现有的跟踪算法提出了巨大的挑战。为了解决这个问题，我们提出了一种名为 SARLA 的新型状态感知表示学习方法，它感知目标表示中当前帧与模板和最后一帧不一致的模态状态，以适应外观和位置的突然变化，从而实现鲁棒的跨模态目标跟踪。特别是，我们提出了模态状态感知表示模块（</div></div><div class='paper'><span class='badge'>Multi-Object Tracking / 多目标跟踪</span><h3>SkyEV: RGB-Event UAV detection and tracking dataset and baseline</h3><div class='meta'>SkyEV：RGB-Event 无人机检测和跟踪数据集和基线<br><a href='https://arxiv.org/abs/2607.18747' target='_blank' rel='noopener'>2607.18747</a> &middot; 2026-07-21 &middot; Jakub Mandula, Sebastian Heusinger, Julian Moosmann, Christian Vogt, Michele Magno</div><div class='summary-cn'><strong>[中文]</strong> 由于无人机的广泛使用和易于使用，在空域中检测无人机变得越来越重要。然而，由于它们尺寸小，通常很难在足够的范围内检测到它们。为了训练优化的检测算法，数据集已经发布，涵盖从红外到常规 RGB 到基于事件传感器的光学传感方法。然而，这些数据集通常无法反映现实的反无人机场景，缺乏相机自我运动、极小的目标尺度和不同的镜头配置等关键因素，并在帧图像上引入压缩伪影。为了解决这一差距，我们引入了 SkyEV，这是一个开源数据集，具有高度同步的未压缩 RGB 和基于事件的数据。 SkyEV 的独特之处在于捕捉复杂的现实世界条件，包括显着的相机运动和各种光学设置，这对于测试视场和检测范围之间的基本权衡至关重要。</div></div>
+</div>
+<footer class="footer">
+  数据来源：arXiv API &middot; 翻译：MyMemory &middot; 每日自动更新<br>
+  <a href="../../index.html">返回 CV 领域动态速览</a>
+</footer>
+</body>
+</html>
