@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOT Daily Digest · 目标跟踪每日速览</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--primary:#0f766e;--primary-light:#14b8a6;--primary-bg:#f0fdfa;--accent:#0ea5e9;
+        --text:#1e293b;--text-secondary:#64748b;--border:#e2e8f0;--card-bg:#fff;--bg:#f8fafc}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
+       background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);
+          border-bottom:1px solid var(--border)}
+  .header-inner{max-width:1080px;margin:0 auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .logo{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--accent));
+        display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;flex-shrink:0}
+  .header h1{font-size:20px;font-weight:700;background:linear-gradient(135deg,var(--primary),var(--accent));
+             -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .header-sub{font-size:12px;color:var(--text-secondary)}
+  .stats{display:flex;gap:18px;font-size:13px;color:var(--text-secondary)}
+  .stats strong{color:var(--text)}
+  .nav-bar{max-width:1080px;margin:0 auto;padding:10px 24px;display:flex;gap:10px;flex-wrap:wrap;border-top:1px solid var(--border)}
+  .nav-bar a{font-size:13px;font-weight:600;color:var(--text-secondary);text-decoration:none;padding:5px 14px;
+             border-radius:20px;background:#f1f5f9;transition:all .2s}
+  .nav-bar a:hover{color:var(--primary);background:var(--primary-bg)}
+  .nav-bar a.current{color:#fff;background:var(--primary)}
+  .container{max-width:1080px;margin:0 auto;padding:32px 24px}
+  .intro{background:var(--primary-bg);border:1px solid #ccfbf1;border-radius:12px;padding:18px 22px;margin-bottom:26px}
+  .intro p{font-size:14px;color:#134e4a;margin:4px 0}
+  h2{font-size:20px;margin:30px 0 14px;color:var(--primary);border-left:4px solid var(--primary);padding-left:10px}
+  h3{font-size:16px;margin:22px 0 10px;color:var(--text)}
+  h4{font-size:14px;margin:16px 0 8px;color:var(--text-secondary)}
+  table.rpt-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px;background:#fff;
+                  box-shadow:0 1px 3px rgba(0,0,0,.05);border-radius:10px;overflow:hidden}
+  table.rpt-table th,table.rpt-table td{border:1px solid var(--border);padding:9px 11px;text-align:left;vertical-align:top}
+  table.rpt-table th{background:var(--primary);color:#fff;font-weight:600}
+  table.rpt-table tr:nth-child(even){background:#f8fafc}
+  .paper{border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin:14px 0;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .paper h3{margin:0 0 6px}
+  .paper .meta{font-size:12px;color:var(--text-secondary);margin-bottom:8px}
+  .paper .meta a{color:var(--primary-light);text-decoration:none}
+  .summary-en{font-size:14px;color:var(--text);border-left:3px solid var(--accent);padding-left:12px;margin:8px 0}
+  .summary-cn{font-size:14px;color:#334155;border-left:3px solid var(--primary-light);padding-left:12px;margin:8px 0;background:#f0fdfa}
+  .badge{display:inline-block;font-size:11px;font-weight:600;padding:2px 10px;border-radius:20px;
+         background:var(--primary-bg);color:var(--primary);margin-bottom:6px}
+  .footer{text-align:center;padding:36px 24px 50px;color:var(--text-secondary);font-size:13px;border-top:1px solid var(--border);margin-top:40px}
+  .footer a{color:var(--primary-light);text-decoration:none}
+  ul,ol{margin:8px 0 8px 22px}
+  blockquote{border-left:3px solid var(--primary);background:#f0fdfa;padding:8px 14px;margin:10px 0;color:#134e4a}
+  img{max-width:100%}
+  /* historical report timeline — main-site (CV) form */
+  .cover{text-align:center;margin:18px 0}
+  .cover img{max-width:420px;border-radius:12px;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+  .theme-img{text-align:center;margin:10px 0 16px}
+  .theme-img img{max-width:100%;border-radius:10px}
+  .tl{position:relative;padding-left:42px;margin-top:8px}
+  .tl::before{content:'';position:absolute;left:15px;top:0;bottom:0;width:2px;background:#c7d2fe;border-radius:2px}
+  .tl-group{position:relative;margin-bottom:28px}
+  .tl-dot{position:absolute;left:-33px;top:4px;width:14px;height:14px;border-radius:50%;
+          background:#3b82f6;border:3px solid #fff;box-shadow:0 0 0 2px #3b82f6;z-index:2}
+  .tl-label{font-size:15px;font-weight:700;color:#1e40af;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .tl-label .mini-dot{width:8px;height:8px;border-radius:50%;background:#3b82f6}
+  .rcard{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:18px 22px;margin-bottom:14px;
+         box-shadow:0 1px 3px rgba(0,0,0,.06);opacity:0;transform:translateY(20px);
+         animation:fadeInUp .5s ease forwards;transition:all .3s ease}
+  .rcard:hover{box-shadow:0 10px 25px -5px rgba(0,0,0,.08);border-color:#3b82f6;transform:translateY(-2px)}
+  @keyframes fadeInUp{to{opacity:1;transform:translateY(0)}}
+  .rcard-title{font-size:16px;font-weight:600;color:#1e293b;line-height:1.5;margin-bottom:4px}
+  .rcard-title a{color:inherit;text-decoration:none}
+  .rcard-title a:hover{color:#3b82f6}
+  .rcard-cn{font-size:14px;color:#475569;margin-bottom:8px}
+  .rcard-meta{display:flex;flex-wrap:wrap;gap:8px;font-size:12px;color:#64748b;margin-bottom:8px}
+  .rcard-badge{display:inline-flex;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:600;
+               background:#eff6ff;color:#1e40af;max-width:340px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .rcard-sum{font-size:14px;color:#475569;line-height:1.7;margin-top:6px;padding-left:12px;border-left:3px solid #c7d2fe}
+  .rcard-sum.cn{border-left-color:#3b82f6;background:#f0fdfa}
+  .rcard-contrib{font-size:13px;color:#475569;margin:8px 0 0 18px}
+  .rcard-contrib li{margin:2px 0}
+  /* reports archive: content inlined, grouped by date */
+  .rpt-section{margin:8px 0}
+  .rpt-section-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;
+                    border-bottom:2px solid var(--primary);padding-bottom:6px;margin:30px 0 16px}
+  .rpt-section-head h2{margin:0;border:0;padding:0;color:var(--primary);font-size:19px}
+  .rpt-full{font-size:13px;font-weight:600;color:#fff;background:var(--primary);text-decoration:none;
+            padding:4px 14px;border-radius:20px;transition:all .2s;white-space:nowrap}
+  .rpt-full:hover{background:var(--accent)}
+  .rpt-sep{border:0;border-top:1px dashed var(--border);margin:34px 0}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <div style="display:flex;align-items:center;gap:14px">
+      <div class="logo">&#x1F3A5;</div>
+      <div>
+        <h1>视觉目标跟踪 · 论文专栏</h1>
+        <div class="header-sub">Visual Object Tracking &middot; 中英双语论文档案</div>
+      </div>
+    </div>
+  </div>
+  <nav class="nav-bar"><a href="../../index.html">主站·本周</a><a href="../index.html" class="current">目标跟踪</a><a href="../reports/index.html">历史报告</a></nav>
+</header>
+<div class="container">
+<div class='intro'><p><strong>Daily Digest / 每日速览：</strong>2026-08-06</p><p>当日新增视觉目标跟踪相关论文（来源：arXiv）。</p></div><div class='paper'><span class='badge'>Multi-Object Tracking / 多目标跟踪</span><h3>Track4Action: Distilling World-Centric 3D Tracker into Vision-Language-Action Policies</h3><div class='meta'>Track4Action：将以世界为中心的 3D 跟踪器提炼为视觉-语言-操作策略<br><a href='https://arxiv.org/abs/2608.03727' target='_blank' rel='noopener'>2608.03727</a> &middot; 2026-08-04 &middot; Chenyi Wang, Xinkai Wang, Bokai Lin, Jialin Tian, Fucheng Zhang, Cewu Lu</div><div class='summary-cn'><strong>[中文]</strong> 动作标签告诉视觉-语言-动作 (VLA) 策略，机器人命令模仿，但不告诉这些命令如何改变 3D 世界。对齐的演示剪辑包含此缺失的监督，因为其 $K$ 帧过渡记录了相应 $K$ 动作期间产生的几何形状、运动、可见性和摄像机变化。我们引入了 Track4Action，这是一个框架，该框架将这种从冻结的以世界为中心的 3D 跟踪器实现的转变提炼为当前观察的 VLA 策略。在训练期间，Track4World 将剪辑 $V_{t:t+K}$ 编码为池化跟踪器特征。可学习的跟踪查询从当前的 VLA 隐藏状态推断出此特征，在共享空间中进行匹配，并通过特征明智的门来调节流匹配动作头。跟踪器功能仅定义对齐目标，因此在部署时既不使用夹子也不使用跟踪器。 Track4Action 在零样本 LIBERO-Plus 上达到 82.3%，将无对齐变体提高了 7.6 点，将 LaMP 提高了 3.0 点</div></div><div class='paper'><span class='badge'>Multi-Object Tracking / 多目标跟踪</span><h3>Surface Keypoint Representation for Multi-Object and Articulated Human-Object Interaction Generation</h3><div class='meta'>用于多对象和铰接式人-对象交互生成的表面关键点表示<br><a href='https://arxiv.org/abs/2608.03158' target='_blank' rel='noopener'>2608.03158</a> &middot; 2026-08-04 &middot; Xiaogang Peng, Zeyu Han, Zichong Meng, Yiming Xie, Jihua Zhu, Gang Hua</div><div class='summary-cn'><strong>[中文]</strong> 日常活动需要人类协调全身运动与周围物体的运动。尽管人与物体交互（HOI）生成方面最近取得了进展，但大多数现有方法都假设与单个刚性物体进行交互，并且不能很好地扩展到涉及可变数量物体或具有不同关节机制的铰接物体的场景。我们提出表面关键点轨迹作为对象运动表示：对于每个刚性组件，无论是独立对象还是铰接组件的一部分，我们随着时间的推移跟踪一小组非共线表面点。这种表示直接从点动力学处理多对象协调和不同的关节机制，而不需要明确的关节类型规范。为了对每个身体区域接触每个对象的时间和地点进行建模，我们引入了时空接触距离场，将基于距离的接触建模扩展到全身、多对象和铰接设置。我们f</div></div>
+</div>
+<footer class="footer">
+  数据来源：arXiv API &middot; 翻译：MyMemory &middot; 每日自动更新<br>
+  <a href="../../index.html">返回 CV 领域动态速览</a>
+</footer>
+</body>
+</html>
