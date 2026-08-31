@@ -99,7 +99,7 @@
       </div>
     </div>
   </div>
-  <nav class="nav-bar"><a href="../../index.html">主站·本周</a><a href="../index.html" class="current">目标跟踪</a><a href="../reports/index.html">历史报告</a></nav>
+  <nav class="nav-bar"><a href="../../index.html">主站·本周</a><a href="../../tracking/index.html" class="current">目标跟踪</a><a href="../../tracking/reports/index.html">历史报告</a></nav>
 </header>
 <div class="container">
 <div class='intro'><p><strong>Daily Digest / 每日速览：</strong>2026-08-20</p><p>当日新增视觉目标跟踪相关论文（来源：arXiv）。</p></div><div class='paper'><span class='badge'>Multimodal Tracking / 多模态跟踪</span><h3>Key-Frame Reasoning with SAM3: Third Place Solution for the MeViS-Text Track of the 8th LSVOS Challenge</h3><div class='meta'>使用 SAM3 进行关键帧推理：第八届 LSVOS 挑战赛 MeViS-Text 赛道第三名解决方案<br><a href='https://arxiv.org/abs/2608.17279' target='_blank' rel='noopener'>2608.17279</a> &middot; 2026-08-18 &middot; Ce Bian, Xusheng He, Jinrong Zhang, Canyang Wu, Xianjing Han, Jianlong Wu</div><div class='summary-cn'><strong>[中文]</strong> 本报告为第八届 LSVOS 挑战赛的 MeViS-Text 赛道提供了一个两阶段、免训练的解决方案。该任务需要一个模型来本地化和分割整个视频中自然语言表达指定的对象。此类表达通常取决于时间线索，包括动作、交互、方向和相对位置。我们的第一阶段通过 API 使用 Gemini-3.1 Pro 将视频级事件分解为实例级目标，为每个目标选择一个关键帧，并生成与该帧对齐的判别性描述。在第二阶段，SAM3-agent 在所选帧上生成像素级种子掩码，SAM3 视频跟踪器在视频中双向传播该掩码。有效实例在其逐帧掩码合并之前独立接地和传播。所有本地 SAM3 处理都在单个 NVIDIA GeForce RTX 4090 上运行，无需特定于任务的训练或模型集成。我们的方法在挑战测试集上排名第三，</div></div>
