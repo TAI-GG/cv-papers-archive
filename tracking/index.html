@@ -2,121 +2,24 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VOT Weekly Report · 目标跟踪周报</title>
+<meta http-equiv="refresh" content="0; url=https://TAI-GG.github.io/vot-papers-archive/">
+<title>专栏已迁移 · Moved</title>
 <style>
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  :root{--primary:#0f766e;--primary-light:#14b8a6;--primary-bg:#f0fdfa;--accent:#0ea5e9;
-        --text:#1e293b;--text-secondary:#64748b;--border:#e2e8f0;--card-bg:#fff;--bg:#f8fafc}
-  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
-       background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
-  .header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);
-          border-bottom:1px solid var(--border)}
-  .header-inner{max-width:1080px;margin:0 auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-  .logo{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--accent));
-        display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;flex-shrink:0}
-  .header h1{font-size:20px;font-weight:700;background:linear-gradient(135deg,var(--primary),var(--accent));
-             -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-  .header-sub{font-size:12px;color:var(--text-secondary)}
-  .stats{display:flex;gap:18px;font-size:13px;color:var(--text-secondary)}
-  .stats strong{color:var(--text)}
-  .nav-bar{max-width:1080px;margin:0 auto;padding:10px 24px;display:flex;gap:10px;flex-wrap:wrap;border-top:1px solid var(--border)}
-  .nav-bar a{font-size:13px;font-weight:600;color:var(--text-secondary);text-decoration:none;padding:5px 14px;
-             border-radius:20px;background:#f1f5f9;transition:all .2s}
-  .nav-bar a:hover{color:var(--primary);background:var(--primary-bg)}
-  .nav-bar a.current{color:#fff;background:var(--primary)}
-  .container{max-width:1080px;margin:0 auto;padding:32px 24px}
-  .intro{background:var(--primary-bg);border:1px solid #ccfbf1;border-radius:12px;padding:18px 22px;margin-bottom:26px}
-  .intro p{font-size:14px;color:#134e4a;margin:4px 0}
-  h2{font-size:20px;margin:30px 0 14px;color:var(--primary);border-left:4px solid var(--primary);padding-left:10px}
-  h3{font-size:16px;margin:22px 0 10px;color:var(--text)}
-  h4{font-size:14px;margin:16px 0 8px;color:var(--text-secondary)}
-  table.rpt-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px;background:#fff;
-                  box-shadow:0 1px 3px rgba(0,0,0,.05);border-radius:10px;overflow:hidden}
-  table.rpt-table th,table.rpt-table td{border:1px solid var(--border);padding:9px 11px;text-align:left;vertical-align:top}
-  table.rpt-table th{background:var(--primary);color:#fff;font-weight:600}
-  table.rpt-table tr:nth-child(even){background:#f8fafc}
-  .paper{border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin:14px 0;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-  .paper h3{margin:0 0 6px}
-  .paper .meta{font-size:12px;color:var(--text-secondary);margin-bottom:8px}
-  .paper .meta a{color:var(--primary-light);text-decoration:none}
-  .summary-en{font-size:14px;color:var(--text);border-left:3px solid var(--accent);padding-left:12px;margin:8px 0}
-  .summary-cn{font-size:14px;color:#334155;border-left:3px solid var(--primary-light);padding-left:12px;margin:8px 0;background:#f0fdfa}
-  .badge{display:inline-block;font-size:11px;font-weight:600;padding:2px 10px;border-radius:20px;
-         background:var(--primary-bg);color:var(--primary);margin-bottom:6px}
-  .footer{text-align:center;padding:36px 24px 50px;color:var(--text-secondary);font-size:13px;border-top:1px solid var(--border);margin-top:40px}
-  .footer a{color:var(--primary-light);text-decoration:none}
-  ul,ol{margin:8px 0 8px 22px}
-  blockquote{border-left:3px solid var(--primary);background:#f0fdfa;padding:8px 14px;margin:10px 0;color:#134e4a}
-  img{max-width:100%}
-  /* historical report timeline — main-site (CV) form */
-  .cover{text-align:center;margin:18px 0}
-  .cover img{max-width:420px;border-radius:12px;box-shadow:0 4px 14px rgba(0,0,0,.08)}
-  .theme-img{text-align:center;margin:10px 0 16px}
-  .theme-img img{max-width:100%;border-radius:10px}
-  .tl{position:relative;padding-left:42px;margin-top:8px}
-  .tl::before{content:'';position:absolute;left:15px;top:0;bottom:0;width:2px;background:#c7d2fe;border-radius:2px}
-  .tl-group{position:relative;margin-bottom:28px}
-  .tl-dot{position:absolute;left:-33px;top:4px;width:14px;height:14px;border-radius:50%;
-          background:#3b82f6;border:3px solid #fff;box-shadow:0 0 0 2px #3b82f6;z-index:2}
-  .tl-label{font-size:15px;font-weight:700;color:#1e40af;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-  .tl-label .mini-dot{width:8px;height:8px;border-radius:50%;background:#3b82f6}
-  .rcard{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:18px 22px;margin-bottom:14px;
-         box-shadow:0 1px 3px rgba(0,0,0,.06);opacity:0;transform:translateY(20px);
-         animation:fadeInUp .5s ease forwards;transition:all .3s ease}
-  .rcard:hover{box-shadow:0 10px 25px -5px rgba(0,0,0,.08);border-color:#3b82f6;transform:translateY(-2px)}
-  @keyframes fadeInUp{to{opacity:1;transform:translateY(0)}}
-  .rcard-title{font-size:16px;font-weight:600;color:#1e293b;line-height:1.5;margin-bottom:4px}
-  .rcard-title a{color:inherit;text-decoration:none}
-  .rcard-title a:hover{color:#3b82f6}
-  .rcard-cn{font-size:14px;color:#475569;margin-bottom:8px}
-  .rcard-meta{display:flex;flex-wrap:wrap;gap:8px;font-size:12px;color:#64748b;margin-bottom:8px}
-  .rcard-badge{display:inline-flex;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:600;
-               background:#eff6ff;color:#1e40af;max-width:340px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .rcard-sum{font-size:14px;color:#475569;line-height:1.7;margin-top:6px;padding-left:12px;border-left:3px solid #c7d2fe}
-  .rcard-sum.cn{border-left-color:#3b82f6;background:#f0fdfa}
-  .rcard-contrib{font-size:13px;color:#475569;margin:8px 0 0 18px}
-  .rcard-contrib li{margin:2px 0}
-  /* reports archive: content inlined, grouped by date */
-  .rpt-section{margin:8px 0}
-  .rpt-section-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;
-                    border-bottom:2px solid var(--primary);padding-bottom:6px;margin:30px 0 16px}
-  .rpt-section-head h2{margin:0;border:0;padding:0;color:var(--primary);font-size:19px}
-  .rpt-full{font-size:13px;font-weight:600;color:#fff;background:var(--primary);text-decoration:none;
-            padding:4px 14px;border-radius:20px;transition:all .2s;white-space:nowrap}
-  .rpt-full:hover{background:var(--accent)}
-  .rpt-sep{border:0;border-top:1px dashed var(--border);margin:34px 0}
-  .idx-list{list-style:none;padding:0;margin:12px 0;display:grid;
-            grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
-  .idx-list li{border:1px solid var(--border);border-radius:10px;background:#fff;padding:10px 14px;
-               display:flex;align-items:center;justify-content:space-between;gap:10px}
-  .idx-list a{font-weight:600;color:var(--primary);text-decoration:none}
-  .idx-list a:hover{text-decoration:underline}
-  .idx-n{font-size:12px;color:var(--text-secondary);white-space:nowrap}
-  .notice{border-left:4px solid #f59e0b;background:#fffbeb;border-radius:8px;
-          padding:12px 16px;margin:16px 0;color:#92400e;font-size:14px;line-height:1.7}
-  .notice.err{border-left-color:#ef4444;background:#fef2f2;color:#991b1b}
+  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC",sans-serif;
+       background:#f7f8fa;color:#1a1a1a}
+  .box{max-width:520px;padding:32px 36px;background:#fff;border:1px solid #e5e7eb;
+       border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);text-align:center}
+  h1{font-size:19px;margin:0 0 12px}
+  p{font-size:14px;line-height:1.8;color:#4b5563;margin:6px 0}
+  a{color:#2563eb}
 </style>
 </head>
 <body>
-<header class="header">
-  <div class="header-inner">
-    <div style="display:flex;align-items:center;gap:14px">
-      <div class="logo">&#x1F3A5;</div>
-      <div>
-        <h1>视觉目标跟踪 · 论文专栏</h1>
-        <div class="header-sub">Visual Object Tracking &middot; 中英双语论文档案</div>
-      </div>
-    </div>
-  </div>
-  <nav class="nav-bar"><a href="../index.html">主站·本周</a><a href="../tracking/index.html" class="current">目标跟踪</a><a href="../tracking/reports/index.html">历史报告</a><a href="../tracking/daily/index.html">归档索引</a></nav>
-</header>
-<div class="container">
-<div class='intro'><p><strong>Report Period / 报告周期：</strong>2026-08-27 ~ 2026-09-03</p><p><strong>Sources / 数据来源：</strong>arXiv (cs.CV) · Semantic Scholar (best-effort)</p><p><strong>Generated / 生成日期：</strong>2026-09-03</p></div><h2>Paper Summary Table / 论文汇总表</h2><table class='rpt-table'><thead><tr><th>No.</th><th>Title (EN)</th><th>Title (CN)</th><th>Authors</th><th>Source</th><th>Category</th><th>Link</th></tr></thead><tbody><tr><td>1</td><td>Beyond the Image Plane: World-Grounded Queries for Multi-Object Tracking</td><td>超越图像平面：基于世界的多对象跟踪查询</td><td>Orcun Cetintas, Guillem Brasó, Tim Meinhardt, Laura Leal-Taixé</td><td>arXiv</td><td>Multi-Object Tracking / 多目标跟踪</td><td><a href='https://arxiv.org/abs/2609.00924' target='_blank' rel='noopener'>link</a></td></tr><tr><td>2</td><td>MotionSync: Non-Causal Refinement of Causal Tracker for Label-Efficient 3D Perception</td><td>MotionSync ：用于标签高效3D感知的因果跟踪器的非因果优化</td><td>Rahul Ahuja, Bala Murali Manoghar Sai Sudhakar, Shashwata Gupta, Venkatraman Narayanan et al.</td><td>arXiv</td><td>Multi-Object Tracking / 多目标跟踪</td><td><a href='https://arxiv.org/abs/2608.29567' target='_blank' rel='noopener'>link</a></td></tr><tr><td>3</td><td>Beyond the Proving Ground: Independent Public-Road Testing of Assisted Lane Change Systems using LiDAR</td><td>超越试验场：使用激光雷达对辅助变道系统进行独立公共道路测试</td><td>Marcello Cellina, Akos Kriston, Antonio Migneco, Davide Maggi et al.</td><td>arXiv</td><td>Multi-Object Tracking / 多目标跟踪</td><td><a href='https://arxiv.org/abs/2608.26669' target='_blank' rel='noopener'>link</a></td></tr></tbody></table><h2>Detailed Papers by Topic / 按主题分组的论文详情</h2><h3>Topic 1: Multi-Object Tracking / 多目标跟踪</h3><div class='paper'><span class='badge'>Multi-Object Tracking / 多目标跟踪</span><h3>Beyond the Image Plane: World-Grounded Queries for Multi-Object Tracking</h3><div class='meta'>超越图像平面：基于世界的多对象跟踪查询<br>arXiv: <a href='https://arxiv.org/abs/2609.00924' target='_blank' rel='noopener'>2609.00924</a> &middot; 2026-09-01 &middot; Orcun Cetintas, Guillem Brasó, Tim Meinhardt, Laura Leal-Taixé</div><div class='summary-en'><strong>[EN]</strong> Monocular videos record 3D scenes as sequences of 2D image-plane projections, obscuring depth and spatial relationships. Multi-object trackers localize and associate objects primarily using appearance and geometry observed only in the image plane, inheriting these ambiguities. To address this limitation, we introduce PLANET, an end-to-end multi-object tracker designed to move beyond the image plane. As an enabling step, we lift existing 2D tracking datasets into 3D. We then form world-grounded queries by embedding reconstructed 3D scene geometry into the features and positional encodings used during query formation. An auxiliary 3D location prediction task further encourages the queries to encode object positions during training. A complementary dual-resolution temporal memory preserves this evidence across longer temporal gaps. As a result, PLANET achieves state-of-the-art performance across three diverse benchmarks.</div><div class='summary-cn'><strong>[中文]</strong> 单目视频将3D场景记录为2D图像平面投影序列，模糊了深度和空间关系。多对象跟踪器主要使用仅在图像平面中观察到的外观和几何形状来定位和关联对象，继承了这些模糊性。为了解决这一限制，我们引入了PLANET ，这是一种端到端的多物体跟踪器，旨在超越图像平面。作为授权步骤，我们将现有的2D跟踪数据集提升为3D。然后，我们通过将重建的3D场景几何体嵌入到查询形成过程中使用的特征和位置编码中，从而形成基于世界的查询。辅助3D位置预测任务进一步鼓励查询在训练期间对对象位置进行编码。互补的双分辨率时间记忆在较长的时间间隙中保留了这一证据。因此， PLANET在三个不同的基准上实现了最先进的性能。</div></div><div class='paper'><span class='badge'>Multi-Object Tracking / 多目标跟踪</span><h3>MotionSync: Non-Causal Refinement of Causal Tracker for Label-Efficient 3D Perception</h3><div class='meta'>MotionSync ：用于标签高效3D感知的因果跟踪器的非因果优化<br>arXiv: <a href='https://arxiv.org/abs/2608.29567' target='_blank' rel='noopener'>2608.29567</a> &middot; 2026-08-30 &middot; Rahul Ahuja, Bala Murali Manoghar Sai Sudhakar, Shashwata Gupta, Venkatraman Narayanan, Varun Ravi Kumar, Senthil Yogamani</div><div class='summary-en'><strong>[EN]</strong> Three-dimensional box-and-track annotation is the cost bottleneck in autonomous-driving data engines, and the offline systems built to relieve it replace the online perception stack outright, so a team needing both regimes maintains and reconciles two. MotionSync makes the causal/non-causal boundary an explicit architectural seam instead. A strictly causal tracker, built on a strong published baseline and extended with innovation-driven uncertainty calibration, frame-rate-invariant kinematic association gates, and multi-hypothesis motion with learned mode selection, emits a valid online result. A non-causal pass then revises the buffered trajectories with Rauch--Tung--Striebel smoothing applied separately to pose, extent and yaw, physics-validated gap completion, and semantic pruning of ghost tracks against LiDAR point labels. The refiner never writes back, so one system serves both regimes and refinement&#x27;s effect is a delta over an unaltered causal estimate. Used as an auto-labeller, a fixed 3D detector trained on 25% human labels plus MotionSync pseudo-labels reaches 96.9% of its full-supervision mean average precision (mAP) on Waymo, and at a 10% budget the non-causal pass accounts for +3.3 mAP/L2 over pseudo-labels from the same tracker&#x27;s causal stage. Re-fitting the online tracker on its own refined output recovers 73% of the benefit of human supervision, while its causal </div><div class='summary-cn'><strong>[中文]</strong> 三维盒子和轨道标注是自动驾驶数据引擎的成本瓶颈，而为缓解它而构建的离线系统直接取代了在线感知堆栈，因此需要两个制度的团队维护并协调两个制度。MotionSync使因果/非因果边界成为明确的建筑接缝。严格的因果跟踪器建立在强大的已发布基线上，并扩展了创新驱动的不确定性校准、帧速率不变的运动学关联门和具有学习模式选择的多假设运动，从而发出有效的在线结果。然后，非因果通道使用Rauch-Tung-Striebel平滑分别应用于姿势、范围和偏航、物理验证的间隙完成以及针对LiDAR点标签的虚影轨迹的语义修剪来修改缓冲轨迹。炼油商永远不会回复，因此一个系统同时为两种制度服务，而精炼的效果是未改变的因果估计值的增量。用作自动贴标机，在25%的人类标签和MotionSync伪标签上训练的固定3D检测器在Waymo上达到其全监督平均平均精度(mAP)的96.9% ，并且在10%的预算下，非因果通行证比来自同一跟踪器因果阶段的伪标签占+3.3 mAP/L2。将在线跟踪器重新装配到其自身的精细输出上，可以恢复73%的人类监督效益，而其因果关系</div></div><div class='paper'><span class='badge'>Multi-Object Tracking / 多目标跟踪</span><h3>Beyond the Proving Ground: Independent Public-Road Testing of Assisted Lane Change Systems using LiDAR</h3><div class='meta'>超越试验场：使用激光雷达对辅助变道系统进行独立公共道路测试<br>arXiv: <a href='https://arxiv.org/abs/2608.26669' target='_blank' rel='noopener'>2608.26669</a> &middot; 2026-08-27 &middot; Marcello Cellina, Akos Kriston, Antonio Migneco, Davide Maggi, Stefano Favelli, Fabrizio Re</div><div class='summary-en'><strong>[EN]</strong> Testing of commercial Advanced Driver Assistance Systems is essential to ensure safety and compliance during type approval and in service operation. However, proving ground scenarios may not reflect real world driving complexity, while geo fencing can require manufacturer collaboration and limit assessment independence. This work presents a methodology for independently testing Assisted Lane Change systems on public roads. A campaign on the A31 French motorway used a test vehicle equipped with a LiDAR based vehicle detection and tracking system. Tests covered combinations of inter vehicle distance and speed between the test vehicle and the take over vehicle. Real time kinematic global navigation satellite system receivers assessed detection and tracking performance. Recorded lane change trajectories were compared with the lane change suppression requirements of UNECE Regulation Number 79. Of 27 predefined lane change manoeuvres, 18 were completed and 9 suppressed. In 6 cases, the system allowed manoeuvres that did not meet regulatory minimum distance requirements. In 3 cases, the deviation remained statistically significant after accounting for measurement uncertainty. To the authors knowledge, this is the first public road campaign designed to assess Assisted Lane Change compliance with Regulation Number 79 safety distance requirements. The results demonstrate the suitability </div><div class='summary-cn'><strong>[中文]</strong> 商用高级驾驶员辅助系统的测试对于确保型号批准和服务操作过程中的安全性和合规性至关重要。然而，验证场景可能无法反映现实世界的驾驶复杂性，而地理围栏可能需要制造商协作并限制评估的独立性。这项工作提出了一种在公共道路上独立测试辅助变道系统的方法。法国A31高速公路上的一场运动使用了一辆配备了基于激光雷达的车辆检测和跟踪系统的测试车辆。测试涵盖了测试车辆和接管车辆之间的车辆间距离和速度的组合。实时运动学全球导航卫星系统接收器评估了检测和跟踪性能。将记录的车道变更轨迹与UNECE第79号条例的车道变更抑制要求进行了比较。在27次预定义的换道操作中， 18次已经完成， 9次被抑制。在6种情况下，该系统允许不符合监管最小距离要求的操作。在3例中，考虑测量不确定度后，偏差仍具有统计学意义。据作者所知，这是第一次旨在评估辅助车道变更是否符合法规第79号安全距离要求的公共道路活动。结果证明了适用性</div></div><h2>Category Distribution / 类别分布</h2><ul><li>Multi-Object Tracking / 多目标跟踪：3 篇</li></ul>
+<div class="box">
+  <h1>视觉目标跟踪专栏已迁移</h1>
+  <p>该专栏已拆分为独立项目，内容已迁往新站点。</p>
+  <p>正在跳转… 如未自动跳转，请<a href="https://TAI-GG.github.io/vot-papers-archive/">点击此处</a>。</p>
 </div>
-<footer class="footer">
-  数据来源：arXiv API · Semantic Scholar (best-effort) &middot; 翻译：MyMemory &middot; 每日自动更新<br>
-  <a href="../index.html">返回 CV 领域动态速览</a>
-</footer>
 </body>
 </html>
